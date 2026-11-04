@@ -22,6 +22,13 @@ It does not see how the reel was built, so it is not grading its own work.
 5. Text rules: no em dashes anywhere, proper capitalization, at most 5 hashtags, YouTube title under 60 characters,
    TikTok caption opens with the search phrase.
 6. Countdown episodes: day number is correct for the posting date, and the tease line matches the next episode.
+7. Retention (from the Nov 3 Instagram insights on the Zelda lengths reel: half of viewers gone by 6 seconds, flat middle, drop at the end card):
+   - The payoff number or headline is on screen in the first second, not after an intro.
+   - Data reels reach the chart within 3 seconds.
+   - The closing question and the follow card are one combined card of about 2 seconds.
+   - The script has one natural share line ("Send this to...") before the closing question.
+8. Safe zones: no text or pills in the top 260 px (Instagram back arrow and + button, TikTok top bar) or the bottom 420 px and right 140 px (captions and action buttons).
+   One source credit only.
 
 ## Output
 
