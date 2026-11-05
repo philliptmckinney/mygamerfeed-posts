@@ -4,6 +4,15 @@ Every reel gets this check from a fresh reviewer agent before it is scheduled in
 The reviewer gets only the finished MP4, the script, the caption, the titles and the source links.
 It does not see how the reel was built, so it is not grading its own work.
 
+## Voiceover edit QA (before any edit goes to Tyler)
+
+Run `python3 tools/qa_vo.py <bounce.wav> pieces.json <bounce words.json>` on every edit, then transcribe the edited file and read it against the script.
+- Every cut edge is quiet (below -45 dB) or is a deliberate mid-phrase join that has been checked by transcript.
+- No cut lands inside a word. No word or partial word repeats across a join (the "and f, and for once" error).
+- Every scripted line and every ad-lib Tyler added is present, unless he approved cutting it. Never drop his ad-libs to save time without asking.
+- The transcript of the edit reads as the script, in order, with nothing clipped at either end.
+Only send the edit once this passes. If it flags something, fix it and run it again first.
+
 ## What the reviewer checks
 
 1. Length: under 58 seconds (YouTube blocks claimed Shorts over 60 seconds worldwide).
