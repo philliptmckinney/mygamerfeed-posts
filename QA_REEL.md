@@ -11,6 +11,7 @@ Run `python3 tools/qa_vo.py <bounce.wav> pieces.json <bounce words.json>` on eve
 - No cut lands inside a word. No word or partial word repeats across a join (the "and f, and for once" error).
 - Every scripted line and every ad-lib Tyler added is present, unless he approved cutting it. Never drop his ad-libs to save time without asking.
 - The transcript of the edit reads as the script, in order, with nothing clipped at either end.
+- Pitch and speed match the raw recording: the Logic bounce has the same duration as the raw file, and a frame-by-frame pitch comparison of raw vs bounce gives a ratio of 1.00 (a sample-rate mismatch shows up as about 0.92 or 1.09).
 Only send the edit once this passes. If it flags something, fix it and run it again first.
 
 ## Recording rhythm (agreed Nov 5)
