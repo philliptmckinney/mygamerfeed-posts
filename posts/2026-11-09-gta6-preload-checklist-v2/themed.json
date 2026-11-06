@@ -1,0 +1,74 @@
+{
+ "theme": "gta",
+ "kind": "check",
+ "handle_avatar": "/home/claude/mascot_page/thumbs_2.png",
+ "slides": [
+  {
+   "type": "cover",
+   "bg": "/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad/gta_shots/Places/Vice City/Vice_City_01.jpg",
+   "kicker": "YOUR CHECKLIST",
+   "title": [
+    "GTA 6",
+    "PRE-LOAD"
+   ],
+   "sub": "Pre-load opens November 10. Save this so you're ready."
+  },
+  {
+   "type": "step",
+   "n": 1,
+   "bg": "/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad/gta_shots/People/Jason and Lucia/Jason_and_Lucia_01.jpg",
+   "head": "Pre-order the digital version",
+   "body": "Digital pre-loading opens November 10 on PS5 and Xbox Series X and S. Code-in-box copies should reach stores starting November 12.",
+   "source": "Source: Rockstar Newswire"
+  },
+  {
+   "type": "step",
+   "n": 2,
+   "bg": "/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad/gta_shots/Places/Vice City/Vice_City_10.jpg",
+   "head": "Free up 212 GB",
+   "body": "Rockstar says the pre-load needs up to 212 GB depending on your console. Clear space now so it can start right away.",
+   "source": "Source: Rockstar Newswire"
+  },
+  {
+   "type": "step",
+   "n": 3,
+   "bg": "/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad/gta_shots/Places/Vice City/Vice_City_08.jpg",
+   "head": "PS5: 12 a.m. Tuesday",
+   "body": "PS5 pre-loading starts Tuesday, November 10 at 12 a.m. in your local time zone, the moment Monday night turns into Tuesday.",
+   "source": "Source: Rockstar Newswire"
+  },
+  {
+   "type": "step",
+   "n": 4,
+   "bg": "/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad/gta_shots/Places/Vice City/Vice_City_11.jpg",
+   "head": "Xbox: Monday evening in the US",
+   "body": "Xbox pre-loading starts globally at 12 a.m. GMT on November 10. That's 7 p.m. Eastern, 6 p.m. Central or 4 p.m. Pacific on Monday, November 9.",
+   "source": "Source: Rockstar Newswire"
+  },
+  {
+   "type": "step",
+   "n": 5,
+   "bg": "/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad/gta_shots/People/Jason and Lucia/Jason_and_Lucia_11.jpg",
+   "head": "Buying the box? No disc",
+   "body": "Code-in-box copies are a download code, not a disc, so you'll still download the whole game. They arrive November 12, so you can't pre-load from one before then.",
+   "source": "Source: Rockstar Newswire"
+  },
+  {
+   "type": "step",
+   "n": 6,
+   "bg": "/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad/gta_shots/People/Jason and Lucia/Jason_and_Lucia_13.jpg",
+   "head": "November 19: play",
+   "body": "Launch day. Rockstar is also adding a free printable cover art poster and Leonida map to the official site that day.",
+   "source": "Source: Rockstar Newswire"
+  },
+  {
+   "type": "follow",
+   "bg": "/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad/gta_shots/People/Jason and Lucia/Jason_and_Lucia_09.jpg",
+   "title": [
+    "COUNTING DOWN",
+    "TO NOV 19"
+   ],
+   "line": "Follow so you don't miss launch week."
+  }
+ ]
+}
