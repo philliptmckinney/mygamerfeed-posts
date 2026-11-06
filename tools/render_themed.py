@@ -15,7 +15,7 @@ W, H = 1080, 1350
 F = "/home/claude/fonts"
 THEMES = {
     "zelda": {"accent": (232, 195, 90), "accent2": (120, 200, 120), "panel": (10, 22, 16, 205), "line": (232, 195, 90),
-              "head": ("Cinzel.ttf", "Black"), "body": ("Rubik.ttf", "Medium"), "ink": (14, 20, 14)},
+              "head": ("ArchivoBlack.ttf", None), "body": ("Rubik.ttf", "Medium"), "ink": (14, 20, 14)},
     "gta": {"accent": (255, 92, 160), "accent2": (255, 170, 60), "panel": (16, 10, 28, 200), "line": (255, 92, 160),
             "head": ("Anton.ttf", None), "body": ("Rubik.ttf", "Medium"), "ink": (20, 10, 30)},
 }
