@@ -1,7 +1,59 @@
 [
- {"id": "2026-11-12-day7-tiktok", "channelId": "6adfbda12f1f5ed648def0a3", "service": "tiktok",
+ {
+  "id": "2026-11-12-day7-tiktok",
+  "channelId": "6adfbda12f1f5ed648def0a3",
+  "service": "tiktok",
   "dueAt": "2026-11-12T12:30:00-06:00",
   "video": "https://raw.githubusercontent.com/philliptmckinney/mygamerfeed-posts/main/reels/2026-11-12-gta6-day7-giant-tower.mp4",
   "text": "GTA 6 tower in Trailer 1: it's at the 2-second mark, Rockstar's screenshots show it's in the game, and nobody knows if you can climb it. What is it? #gta6 #gta6trailer #gtavi #rockstargames #leonida",
-  "status": "pending"}
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-212-tiktok",
+  "channelId": "6adfbda12f1f5ed648def0a3",
+  "service": "tiktok",
+  "dueAt": "2026-11-07T15:30:00-06:00",
+  "video": "https://raw.githubusercontent.com/philliptmckinney/mygamerfeed-posts/main/reels/2026-11-07-gta6-212gb-official.mp4",
+  "text": "GTA 6 file size: Rockstar confirms up to 212 GB, and pre-load now starts November 10. What are you deleting first? #gta6 #gtavi #rockstargames #ps5 #xbox",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-pusher-tiktok",
+  "channelId": "6adfbda12f1f5ed648def0a3",
+  "service": "tiktok",
+  "dueAt": "2026-11-07T18:30:00-06:00",
+  "video": "https://raw.githubusercontent.com/philliptmckinney/mygamerfeed-posts/main/reels/2026-11-07-gta6-score-pusher.mp4",
+  "text": "GTA 6 soundtrack: \"Pusher\" by Justice and Gesaffelstein is out, full score album December 11. Right sound for Vice City? #gta6 #gtavi #rockstargames #justice #gaming",
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-pusher-youtube",
+  "channelId": "6ae4b9362f1f5ed64821a744",
+  "service": "youtube",
+  "dueAt": "2026-11-07T18:30:00-06:00",
+  "video": "https://raw.githubusercontent.com/philliptmckinney/mygamerfeed-posts/main/reels/2026-11-07-gta6-score-pusher.mp4",
+  "text": "GTA 6's score is by Justice, and the first track \"Pusher\" is out. The full album lands December 11. Right sound for Vice City? #gta6 #gtavi #rockstargames #justice #shorts",
+  "metadata": {
+   "youtube": {
+    "title": "GTA 6's score is by Justice, and track one is out",
+    "categoryId": "20"
+   }
+  },
+  "status": "pending"
+ },
+ {
+  "id": "2026-11-07-pusher-instagram",
+  "channelId": "6adfbd4e2f1f5ed648deee80",
+  "service": "instagram",
+  "dueAt": "2026-11-07T18:30:00-06:00",
+  "video": "https://raw.githubusercontent.com/philliptmckinney/mygamerfeed-posts/main/reels/2026-11-07-gta6-score-pusher.mp4",
+  "text": "GTA 6's score is by Justice, and the first track \"Pusher\" is out. The full album lands December 11. Right sound for Vice City? #gta6 #gtavi #rockstargames #justice #gaming\n\nFollow @mygamerfeed to stay in the loop.",
+  "metadata": {
+   "instagram": {
+    "type": "reel",
+    "shouldShareToFeed": true
+   }
+  },
+  "status": "pending"
+ }
 ]
