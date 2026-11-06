@@ -15,7 +15,7 @@ Only send the edit once this passes. If it flags something, fix it and run it ag
 
 ## Recording rhythm (agreed Nov 5)
 
-- One weekly batch session covers 7 to 10 days of evergreen scripts: countdown episodes, stories, explainers, long-form. Tyler says the script number before each one.
+- One weekly batch session, normally Monday (Tyler flags exceptions), covers the next 7 days of evergreen scripts: countdown episodes, stories, explainers, long-form. Tyler says the script number before each one.
 - Daily carousels carry the day's news with no voiceover.
 - Breaking news gets a short script (about 30 seconds) sent to Tyler the same day, recorded in about 5 minutes on the Wireless GO 2. Only for news worth it, about 2 or 3 a week.
 - Freshness check: before any batched script posts, re-verify its facts against current news. If something changed, adjust the caption and on-screen text, flag it to Tyler, or swap in another script. Never post a stale "today" or "just announced" line.
