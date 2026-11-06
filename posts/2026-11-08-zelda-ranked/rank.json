@@ -1,0 +1,128 @@
+{
+ "title": [
+  "ZELDA GAMES",
+  "RANKED"
+ ],
+ "sub": "BY METACRITIC SCORE",
+ "hook": "Main games, best-scoring version of each. Where does your favorite land?",
+ "color": [
+  20,
+  196,
+  110
+ ],
+ "avatar_point": "/home/claude/mascot_page/point_2.png",
+ "avatar_thumbs": "/home/claude/mascot_page/thumbs_2.png",
+ "tiers": [
+  {
+   "label": "#15 TO #12",
+   "items": [
+    {
+     "name": "Echoes of Wisdom",
+     "meta": "2024 \u00b7 Switch",
+     "score": 85
+    },
+    {
+     "name": "Link's Awakening",
+     "meta": "2019 remake \u00b7 Switch",
+     "score": 87
+    },
+    {
+     "name": "Spirit Tracks",
+     "meta": "2009 \u00b7 DS",
+     "score": 87
+    },
+    {
+     "name": "The Minish Cap",
+     "meta": "2005 \u00b7 Game Boy Advance",
+     "score": 89
+    }
+   ]
+  },
+  {
+   "label": "#11 TO #9",
+   "items": [
+    {
+     "name": "Phantom Hourglass",
+     "meta": "2007 \u00b7 DS",
+     "score": 90
+    },
+    {
+     "name": "A Link Between Worlds",
+     "meta": "2013 \u00b7 3DS",
+     "score": 91
+    },
+    {
+     "name": "Skyward Sword",
+     "meta": "2011 \u00b7 Wii",
+     "score": 93
+    }
+   ]
+  },
+  {
+   "label": "TIED AT #7",
+   "items": [
+    {
+     "name": "Majora's Mask",
+     "meta": "2000 \u00b7 N64",
+     "score": 95
+    },
+    {
+     "name": "A Link to the Past",
+     "meta": "2002 GBA version",
+     "score": 95
+    }
+   ]
+  },
+  {
+   "label": "TIED AT #3",
+   "items": [
+    {
+     "name": "Twilight Princess",
+     "meta": "2006 \u00b7 GameCube",
+     "score": 96
+    },
+    {
+     "name": "The Wind Waker",
+     "meta": "2003 \u00b7 GameCube",
+     "score": 96
+    },
+    {
+     "name": "Tears of the Kingdom",
+     "meta": "2023 \u00b7 Switch",
+     "score": 96
+    },
+    {
+     "name": "Ocarina of Time remake",
+     "meta": "2026 \u00b7 Switch 2",
+     "score": 96
+    }
+   ]
+  },
+  {
+   "label": "#2",
+   "items": [
+    {
+     "name": "Breath of the Wild",
+     "meta": "2017 \u00b7 Switch",
+     "score": 97
+    }
+   ]
+  },
+  {
+   "label": "#1",
+   "items": [
+    {
+     "name": "Ocarina of Time",
+     "meta": "1998 \u00b7 N64",
+     "score": 99
+    }
+   ],
+   "note": "Still the highest-rated game on Metacritic, ever."
+  }
+ ],
+ "pick": {
+  "critics": "Ocarina of Time",
+  "mine": "Twilight Princess",
+  "line": "Fight me in the comments. What's your number one?"
+ }
+}
