@@ -20,6 +20,10 @@ Only send the edit once this passes. If it flags something, fix it and run it ag
 - Breaking news gets a short script (about 30 seconds) sent to Tyler the same day, recorded in about 5 minutes on the Wireless GO 2. Only for news worth it, about 2 or 3 a week.
 - Freshness check: before any batched script posts, re-verify its facts against current news. If something changed, adjust the caption and on-screen text, flag it to Tyler, or swap in another script. Never post a stale "today" or "just announced" line.
 
+## Carousel look (Tyler, Nov 5)
+
+Evergreen carousels (rankings, checklists, this-vs-that) lead with the game's own branding: full-bleed official art, the game's palette and type feel (tools/render_themed.py, themes zelda and gta). @mygamerfeed is a small accent: the handle pill and the mascot on the last slide only. Keep all text above y 1200 and left of x 940 on 1080x1350 slides.
+
 ## What the reviewer checks
 
 1. Length: under 58 seconds (YouTube blocks claimed Shorts over 60 seconds worldwide).
