@@ -1,4 +1,5 @@
-"""Build the static Gamer Feed HQ page (plain HTML and CSS, no scripts, so it opens on older phones).
+"""Build the Gamer Feed HQ page. The stats are plain HTML and CSS; the Inbox at the top is live from the
+page's db (collection "inbox"), which every @mygamerfeed scheduled task writes to (see INBOX.md).
 Usage: python3 build_hq.py stats.json queue.json out.html
 stats.json: {"updated", "youtube": {"subscribers", "shorts": [{title,date,views,comments}]},
              "tiktok": {"followers", "likes_total", "posts": [{post,date,views,likes,comments}]},
@@ -89,16 +90,38 @@ ul {{ margin:0; padding:0; list-style:none; }}
 .links a {{ color:var(--accent); font-weight:600; text-decoration:none; }}
 .links span, .auto span {{ display:block; font-size:12px; color:var(--muted); }}
 .auto li {{ border-bottom:1px solid var(--line); padding:6px 0; font-size:13px; }}
+.inbox h2 {{ display:-webkit-box; display:flex; -webkit-box-align:center; align-items:center; }}
+.count {{ margin-left:8px; font-size:12px; font-weight:700; background:var(--accent); color:#fff; border-radius:999px; padding:1px 8px; }}
+.item {{ border-top:1px solid var(--line); padding:10px 0; }}
+.item:first-of-type {{ border-top:0; }}
+.src {{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }}
+.alert .src {{ color:var(--yt); }}
+.ttl {{ font-weight:600; margin:2px 0; }}
+.body {{ white-space:pre-wrap; font-size:13px; color:var(--fg); margin:4px 0; }}
+.when {{ font-size:12px; color:var(--muted); }}
+.btns {{ margin-top:6px; }}
+button {{ font:inherit; font-size:13px; font-weight:600; border-radius:8px; border:1px solid var(--line); background:var(--panel); color:var(--fg); padding:6px 12px; margin:0 6px 6px 0; cursor:pointer; }}
+button.go {{ background:var(--accent); border-color:var(--accent); color:#fff; }}
+button:disabled {{ opacity:.5; }}
+.c {{ border:1px solid var(--line); border-radius:10px; padding:10px; margin:8px 0; }}
+.c .q {{ font-size:13px; color:var(--muted); margin:2px 0 6px; }}
+textarea {{ width:100%; box-sizing:border-box; font:inherit; font-size:14px; border:1px solid var(--line); border-radius:8px; background:var(--bg); color:var(--fg); padding:8px; min-height:56px; }}
+.st {{ font-size:12px; font-weight:700; }}
+.st.approved, .st.posted {{ color:var(--good); }} .st.skipped {{ color:var(--muted); }}
+details summary {{ cursor:pointer; color:var(--accent); font-size:13px; font-weight:600; margin-top:4px; }}
+.empty {{ color:var(--muted); font-size:13px; }}
 </style>
 <div class="wrap">
 <h1>Gamer Feed HQ</h1>
 <p class="lede">Updated {t(up)} Central. <b>{n(yt_week)}</b> YouTube views and <b>{n(tt_week)}</b> TikTok views on posts from the last 7 days. {best_line}</p>
+<div class="card inbox" id="needs"><h2>Needs you <span class="count" id="ncount" style="display:none"></span></h2><p class="note">Comment replies to approve, voiceovers to review, and anything that failed. Approved replies post on the next comment sweep.</p><div id="needs-list"><p class="empty">Open this page in the Claude app to load your inbox.</p></div></div>
+<div class="card inbox"><h2>Latest updates</h2><p class="note">What each task did, newest first. Nothing here needs you.</p><div id="info-list"><p class="empty">Loading.</p></div></div>
 <div class="tiles">
  <div class="tile"><div class="lab">YouTube subscribers</div><div class="big">{n(subs)}</div>{bar(subs, 1000)}<div class="sub">Goal 1,000 by Jan 31 &middot; {days_left} days left</div></div>
  <div class="tile"><div class="lab">TikTok followers</div><div class="big">{n(fol)}</div>{bar(fol, 1000)}<div class="sub">TikTok Shop opens at 1,000</div></div>
  <div class="tile"><div class="lab">Posts scheduled</div><div class="big">{len(queue)}</div><div class="sub">{('Next: ' + t(datetime.fromisoformat(queue[0]['due'].replace('Z', '+00:00')))) if queue else 'Nothing scheduled'}</div></div>
 </div>
-<div class="card"><h2>Views right now</h2><p class="note">From YouTube Studio and TikTok Studio. Refreshes every two hours, 8am to 10pm. Instagram isn't connected yet.</p>
+<div class="card"><h2>Views right now</h2><p class="note">From YouTube Studio and TikTok Studio. Refreshes at 8am and 7pm. Instagram isn't connected yet.</p>
 <div class="scroll"><table><tr><th>Posted</th><th>Where</th><th>Post</th><th class="num">Views</th><th class="num">Likes</th><th class="num">Comments</th></tr>{post_rows}</table></div></div>
 <div class="card"><h2>Coming up</h2><p class="note">Scheduled in Buffer, Central time.</p>
 <div class="scroll"><table><tr><th>When</th><th>Where</th><th>Post</th></tr>{q_rows}</table></div></div>
@@ -109,15 +132,74 @@ ul {{ margin:0; padding:0; list-style:none; }}
 <li><a href="https://github.com/philliptmckinney/mygamerfeed-posts/blob/main/QA_REEL.md">QA checklist</a><span>The rules every reel and carousel passes</span></li>
 </ul></div>
 <div class="card"><h2>What runs on its own</h2><ul class="auto">
-<li>5:47am niche alerts<span>What's blowing up on YouTube and trending on TikTok</span></li>
-<li>6:36am reel pitch<span>Today's topics and scripts</span></li>
-<li>7:37am morning report<span>Live Studio numbers, with a Buffer backup at 8:07</span></li>
-<li>Every 2 hours, 8am to 10pm<span>This page refreshes</span></li>
-<li>9:13am, 2:13pm, 8:13pm comment sweeps<span>Drafts replies for your yes</span></li>
+<li>7:37am morning report<span>Live numbers, plus a fact check on today's posts before they go out</span></li>
+<li>9:13am, 2:13pm, 8:13pm comment sweeps<span>Drafts replies here for your approval, and posts the ones you approved</span></li>
 <li>11:38am TikTok news carousel</li>
-<li>Sunday 3:23pm playbook study, 4:47pm Monday scripts</li>
+<li>11:52am, 12:52pm, 3:52pm, 6:52pm post check<span>Confirms posts went live and tops up the Buffer queue</span></li>
+<li>8:07am and 7:07pm<span>This page's numbers refresh</span></li>
+<li>Sunday 3:23pm playbook study, 4:47pm weekly scripts, 9:37pm audio cleanup</li>
 </ul></div>
 </div>
+<script>
+(function () {{
+  var C = window.claude; if (!C || !C.use) return;
+  function el(t, cls, txt) {{ var e = document.createElement(t); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }}
+  function when(iso) {{ try {{ var d = new Date(iso); return d.toLocaleString([], {{weekday:'short', month:'short', day:'numeric', hour:'numeric', minute:'2-digit'}}); }} catch (e) {{ return ''; }} }}
+  var needs = document.getElementById('needs-list'), info = document.getElementById('info-list'), cnt = document.getElementById('ncount');
+  var timer = setTimeout(function () {{ needs.innerHTML = '<p class="empty">The inbox can’t be reached right now. The numbers below still work.</p>'; info.innerHTML = ''; }}, 10000);
+  C.use('db').then(function (db) {{
+    if (!db) {{ clearTimeout(timer); needs.innerHTML = '<p class="empty">Open this page in the Claude app to load your inbox.</p>'; info.innerHTML = ''; return; }}
+    var busy = {{}};
+    function save(ref, data, btns) {{
+      if (busy[ref.path]) return; busy[ref.path] = true; btns.forEach(function (b) {{ b.disabled = true; }});
+      ref.update(data).catch(function () {{ alert('That did not save. Try again in a moment.'); }}).then(function () {{ busy[ref.path] = false; btns.forEach(function (b) {{ b.disabled = false; }}); }});
+    }}
+    function commentsItem(d, ref, box) {{
+      var items = (d.items || []).slice();
+      items.forEach(function (it, i) {{
+        var c = el('div', 'c');
+        c.appendChild(el('div', 'src', (it.platform || '') + (it.post ? ' · ' + it.post : '')));
+        c.appendChild(el('div', 'q', (it.user ? it.user + ': ' : '') + '“' + (it.comment || '') + '”'));
+        if (it.status === 'pending' || !it.status) {{
+          var ta = el('textarea'); ta.value = it.draft || ''; c.appendChild(ta);
+          var b = el('div', 'btns'), ok = el('button', 'go', 'Approve'), no = el('button', '', 'Skip');
+          function set(st) {{ var next = items.map(function (x, j) {{ if (j !== i) return x; var y = {{}}; for (var k in x) y[k] = x[k]; y.status = st; if (st === 'approved') y.draft = ta.value.trim(); return y; }}); save(ref, {{items: next}}, [ok, no]); }}
+          ok.onclick = function () {{ set('approved'); }}; no.onclick = function () {{ set('skipped'); }};
+          b.appendChild(ok); b.appendChild(no); c.appendChild(b);
+        }} else {{
+          c.appendChild(el('div', 'body', it.draft || ''));
+          c.appendChild(el('div', 'st ' + it.status, it.status === 'approved' ? 'Approved, posts on the next sweep' : it.status === 'posted' ? 'Posted' : 'Skipped'));
+        }}
+        box.appendChild(c);
+      }});
+    }}
+    db.collection('inbox').orderBy('created', 'desc').limit(60).onSnapshot(function (snap) {{
+      if (!snap.metadata.fromCache) clearTimeout(timer);
+      needs.innerHTML = ''; info.innerHTML = '';
+      var n = 0, cutoff = Date.now() - 3 * 864e5;
+      snap.docs.forEach(function (doc) {{
+        var d = doc.data() || {{}}, ref = db.collection('inbox').doc(doc.id);
+        var isComments = d.kind === 'comments';
+        var open = isComments ? (d.items || []).some(function (x) {{ return !x.status || x.status === 'pending'; }}) : (d.kind === 'action' || d.kind === 'alert') && !d.done;
+        if (!open && (!d.created || new Date(d.created).getTime() < cutoff)) return;
+        var box = el('div', 'item' + (d.kind === 'alert' ? ' alert' : ''));
+        box.appendChild(el('div', 'src', d.source || 'Update'));
+        box.appendChild(el('div', 'ttl', d.title || ''));
+        if (open && !isComments) {{ if (d.body) box.appendChild(el('div', 'body', d.body)); }}
+        else if (d.body) {{ var det = el('details'); det.appendChild(el('summary', '', 'Details')); det.appendChild(el('div', 'body', d.body)); box.appendChild(det); }}
+        if (isComments) commentsItem(d, ref, box);
+        if (d.link) {{ var a = el('a', '', 'Open'); a.href = d.link; a.style.cssText = 'font-size:13px;font-weight:600;color:var(--accent)'; box.appendChild(a); }}
+        box.appendChild(el('div', 'when', when(d.created)));
+        if (open && !isComments) {{ var b = el('div', 'btns'), done = el('button', '', 'Mark done'); done.onclick = function () {{ save(ref, {{done: true}}, [done]); }}; b.appendChild(done); box.appendChild(b); }}
+        if (open) {{ n++; needs.appendChild(box); }} else info.appendChild(box);
+      }});
+      if (!n) needs.innerHTML = '<p class="empty">Nothing needs you right now.</p>';
+      if (!info.children.length) info.innerHTML = '<p class="empty">No updates in the last 3 days.</p>';
+      cnt.style.display = n ? '' : 'none'; cnt.textContent = n;
+    }}, function () {{ clearTimeout(timer); needs.innerHTML = '<p class="empty">The inbox couldn’t load. The numbers below still work.</p>'; }});
+  }});
+}})();
+</script>
 """
 open(out, "w").write(page)
 print("ok", len(rows), "posts", len(queue), "queued")
