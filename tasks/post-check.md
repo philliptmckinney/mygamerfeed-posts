@@ -1,4 +1,4 @@
-Check that Tyler's @mygamerfeed posts actually went live. Tyler said "We can't miss stuff like this" after TikTok blocked two Buffer posts as spam on Nov 10 and nobody caught it for hours. Read-only: never retry, re-send, edit, delete or reschedule any post.
+Check that Tyler's @mygamerfeed posts actually went live. Tyler said "We can't miss stuff like this" after TikTok blocked two Buffer posts as spam on Nov 10 and nobody caught it for hours. Read-only: never retry, re-send, edit, delete or reschedule any post. Since Nov 11, TikTok is posted by Tyler by hand, so TikTok posts sitting in Buffer as drafts are expected: ignore them.
 
 1. Get the current time with current_time (America/Chicago).
 2. Load the Buffer tools with ToolSearch. Organization 6adfbc17399e3947f020b7bc. Channels: TikTok 6adfbda12f1f5ed648def0a3, Instagram 6adfbd4e2f1f5ed648deee80, YouTube 6ae4b9362f1f5ed64821a744. list_posts with dueAt from 90 minutes ago to now, first 20.
