@@ -32,6 +32,10 @@ No "It's like..." comparison or metaphor lines in scripts (Tyler: they "scream A
 
 Evergreen carousels (rankings, checklists, this-vs-that) lead with the game's own branding: full-bleed official art, the game's palette and type feel (tools/render_themed.py, themes zelda and gta). @mygamerfeed is a small accent: the handle pill and the mascot on the last slide only. Keep all text above y 1200 and left of x 940 on 1080x1350 slides.
 
+## Cover frame (Tyler, Nov 11)
+
+Every reel opens with a 0.2 s cover frame built for the profile grid (`tools/cover.py`): the reel's own sharp opening art, a big two-line headline near the top, one stamp, and the mascot pose matched to the hook (shocked for warnings and myth busts, thinking for questions and mysteries, laughing for lighter wins). Keep the headline, stamp and mascot inside the TikTok grid crop (y 240 to 1680) and the safe zones, and never cover the headline or credit with the mascot. Never mirror the mascot (the cap text flips). Set Buffer thumbnailOffset 0 on TikTok and Instagram posts.
+
 ## What the reviewer checks
 
 1. Length: under 58 seconds (YouTube blocks claimed Shorts over 60 seconds worldwide).
