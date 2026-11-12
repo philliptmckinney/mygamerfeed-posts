@@ -12,3 +12,5 @@ Refresh Tyler's phone-friendly Gamer Feed HQ page (https://claude.ai/artifact/UH
 6. End with a one-line note of what was refreshed.
 
 7. PRUNE THE INBOX. With ArtifactData, query collection `inbox` on the HQ url (limit 200). Delete (with each document's version as if_version) any `info` document whose created is older than 7 days, and any `action`, `alert` or `comments` document that is done (or whose items are all posted or skipped) and older than 7 days. Never delete an open one.
+
+PLAYLISTS (Tyler, Nov 12): the YouTube channel has three public playlists: "GTA 6 Countdown" (every GTA 6 Short), "Ocarina of Time Remake" (Ocarina remake Shorts and long-form), "Gaming News Explained" (everything else). Buffer cannot add uploads to playlists. On the 19:07 run, use Claude in Chrome (signed in as My Gamer Feed): open https://studio.youtube.com/channel/UCjffkzsuHCKMH4Z4LXKBvqg/videos/short (and /videos/upload for long-form), find any video from the last 2 days not yet in a playlist, tick it, click "Add to playlist", tick the matching playlist and Save. One video goes in one playlist. Note what you added in the stats info doc.
