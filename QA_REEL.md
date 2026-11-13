@@ -34,7 +34,7 @@ Evergreen carousels (rankings, checklists, this-vs-that) lead with the game's ow
 
 ## Cover frame (Tyler, Nov 11)
 
-Every reel opens with a 0.2 s cover frame built for the profile grid (`tools/cover.py`): the reel's own sharp opening art, a big two-line headline near the top, one stamp, and the mascot pose matched to the hook (shocked for warnings and myth busts, thinking for questions and mysteries, laughing for lighter wins). Keep the headline, stamp and mascot inside the TikTok grid crop (y 240 to 1680) and the safe zones, and never cover the headline or credit with the mascot. Never mirror the mascot (the cap text flips). Set Buffer thumbnailOffset 0 on TikTok and Instagram posts.
+Every reel opens with a 0.2 s cover frame built for the profile grid (`tools/cover.py`): the reel's own sharp opening art, a big two-line headline near the top, one stamp, and the mascot pose matched to the hook (shocked for warnings and myth busts, thinking for questions and mysteries, laughing for lighter wins). Keep the headline, stamp and mascot inside the TikTok grid crop (y 240 to 1680) and the safe zones, and never cover the headline or credit with the mascot. Never mirror the mascot (the cap text flips). Never use the shocked_b pose: its cap is cut off at the top. The whole cap, outline included, must show; use shocked_a for shocked hooks. Set Buffer thumbnailOffset 0 on TikTok and Instagram posts.
 
 ## What the reviewer checks
 

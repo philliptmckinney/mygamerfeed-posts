@@ -7,6 +7,8 @@ from kit import *
 from PIL import Image, ImageFilter, ImageDraw, ImageEnhance
 POSE = '/home/claude/mygamerfeed-posts/assets/poses/mgf_pose_%s_cutout.png'
 F0 = S + '/cover/f0/%s.png'
+# Retired poses: shocked_b has the cap crown cut flat at the top of the art. Tyler: not a fan. Never use.
+RETIRED = {'shocked_b'}
 
 def stamp(txt, size, col):
     f = font(size); tw = int(ImageDraw.Draw(Image.new("RGB", (1, 1))).textlength(txt, font=f))
@@ -15,9 +17,9 @@ def stamp(txt, size, col):
     d.text(((tw + 80) / 2, (size + 70) / 2), txt, font=f, fill=col, anchor="mm"); return im
 
 SPECS = {
- '2026-11-11-mw4-camos':       dict(l1="YOUR CAMOS", l2="DIDN'T COME", stamp="BO7 GUNS: IN", scol=GREEN, pose='shocked_b', side='left', corner=None, cred="IMAGES: ACTIVISION"),
+ '2026-11-11-mw4-camos':       dict(l1="YOUR CAMOS", l2="DIDN'T COME", stamp="BO7 GUNS: IN", scol=GREEN, pose='shocked_a', side='left', corner=None, cred="IMAGES: ACTIVISION"),
  '2026-11-12-ocarina-missing': dict(l1="96 ON METACRITIC", l2="BUT IT'S MISSING", stamp="MISSING: 3", scol=RED, pose='shocked_a', side='left', corner="2026 REMAKE", cred="FOOTAGE: NINTENDO"),
- '2026-11-13-gta6-day6-spoiler-shield': dict(l1="THE ENDING", l2="WILL LEAK", stamp="SPOILER ALERT", scol=RED, pose='shocked_b', side='left', corner="GTA 6 IN 6 DAYS", cred="FOOTAGE: ROCKSTAR GAMES"),
+ '2026-11-13-gta6-day6-spoiler-shield': dict(l1="THE ENDING", l2="WILL LEAK", stamp="SPOILER ALERT", scol=RED, pose='shocked_a', side='left', corner="GTA 6 IN 6 DAYS", cred="FOOTAGE: ROCKSTAR GAMES"),
  '2026-11-13-warzone-switch2': dict(l1="WARZONE", l2="ON SWITCH 2", stamp="FREE", scol=RED, pose='shocked_a', side='right', corner=None, cred="IMAGES: ACTIVISION"),
  '2026-11-14-mw4-battle-pass': dict(l1="IT CATCHES YOU UP", l2="MW4 BATTLE PASS", stamp="FINALLY", scol=GREEN, pose='laughing_a', side='left', corner=None, cred="IMAGES: ACTIVISION"),
  '2026-11-15-ocarina-nine-ways': dict(l1="9 VERSIONS", l2="ONLY 2 REMAKES", stamp="SINCE 1998", scol=GREEN, pose='thinking_a', side='right', corner="2026 REMAKE", cred="FOOTAGE: NINTENDO"),
@@ -38,6 +40,7 @@ def build(name):
     bg = fit(BG[name]); bg.paste(Image.new('RGB', (W, H), INK), (0, 0), E.shade())
     bg = ImageEnhance.Brightness(bg).enhance(0.8)
     c = bg.convert('RGBA')
+    if sp['pose'] in RETIRED: raise SystemExit('Pose %s is retired (cap cut off). Use shocked_a.' % sp['pose'])
     m = Image.open(POSE % sp['pose']).convert('RGBA')
     h = 800; m = m.resize((int(m.width * h / m.height), h), Image.LANCZOS)
     if m.width > 620: m = m.resize((620, int(m.height * 620 / m.width)), Image.LANCZOS)
