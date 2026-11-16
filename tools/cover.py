@@ -1,6 +1,7 @@
 """Grid-friendly cover frame with the mascot, built over a blurred, darkened copy of the reel's first frame.
 Usage: python3 cover.py SPEC_NAME   (specs below). Writes cover/<name>.png and a TikTok-grid preview."""
 import sys, os
+import numpy as np
 S = '/tmp/claude-0/-home-claude/84d9a987-6211-59bf-b239-4931e378b385/scratchpad'
 sys.path.insert(0, S)
 from kit import *
@@ -22,10 +23,13 @@ SPECS = {
  '2026-11-13-gta6-day6-spoiler-shield': dict(l1="THE ENDING", l2="WILL LEAK", stamp="SPOILER ALERT", scol=RED, pose='shocked_a', side='left', corner="GTA 6 IN 6 DAYS", cred="FOOTAGE: ROCKSTAR GAMES"),
  '2026-11-13-warzone-switch2': dict(l1="WARZONE", l2="ON SWITCH 2", stamp="FREE", scol=RED, pose='shocked_a', side='right', corner=None, cred="IMAGES: ACTIVISION"),
  '2026-11-14-mw4-battle-pass': dict(l1="IT CATCHES YOU UP", l2="MW4 BATTLE PASS", stamp="FINALLY", scol=GREEN, pose='laughing_a', side='left', corner=None, cred="IMAGES: ACTIVISION"),
+ '2026-11-17-gta6-day2-ps5-settings': dict(l1="4 PS5 SETTINGS", l2="BEFORE GTA 6", stamp="DAY 2", scol=RED, pose='shocked_a', side='left', corner="GTA 6 IN 2 DAYS", cred="FOOTAGE: ROCKSTAR GAMES"),
+ '2026-11-17-mw4-wager-gauntlet': dict(l1="BET YOUR TROPHIES", l2="IN A 1V1", stamp="GAUNTLET", scol=GREEN, pose='laughing_a', side='right', corner=None, cred="IMAGES: ACTIVISION"),
+ '2026-11-18-gta6-day1-jason-lucia': dict(l1="WHO BETRAYS", l2="WHO FIRST?", stamp="DAY 1", scol=RED, pose='thinking_a', side='right', corner="GTA 6 TONIGHT", cred="IMAGES: ROCKSTAR GAMES"),
  '2026-11-15-ocarina-nine-ways': dict(l1="9 VERSIONS", l2="ONLY 2 REMAKES", stamp="SINCE 1998", scol=GREEN, pose='thinking_a', side='right', corner="2026 REMAKE", cred="FOOTAGE: NINTENDO"),
 }
 
-BG = {'2026-11-11-mw4-camos': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST.jpg', '2026-11-12-ocarina-missing': 'r_missing/navi/f0001.jpg', '2026-11-13-gta6-day6-spoiler-shield': 'r_spoil/pair/f0001.jpg', '2026-11-13-warzone-switch2': 'r_warzone/img/ghost.jpg', '2026-11-14-mw4-battle-pass': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST_HA.jpg', '2026-11-15-ocarina-nine-ways': 'r_nine/hook/f0001.jpg'}
+BG = {'2026-11-11-mw4-camos': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST.jpg', '2026-11-12-ocarina-missing': 'r_missing/navi/f0001.jpg', '2026-11-13-gta6-day6-spoiler-shield': 'r_spoil/pair/f0001.jpg', '2026-11-13-warzone-switch2': 'r_warzone/img/ghost.jpg', '2026-11-14-mw4-battle-pass': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST_HA.jpg', '2026-11-15-ocarina-nine-ways': 'r_nine/hook/f0001.jpg', '2026-11-17-gta6-day2-ps5-settings': 'r_d9/car/f0020.jpg', '2026-11-17-mw4-wager-gauntlet': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST_HA.jpg', '2026-11-18-gta6-day1-jason-lucia': 'press/ss/People/Jason and Lucia/Jason_and_Lucia_01.jpg'}
 
 def fit(path):
     im = Image.open(S + '/' + path).convert('RGB'); w, h = im.size
@@ -44,11 +48,14 @@ def build(name):
     m = Image.open(POSE % sp['pose']).convert('RGBA')
     h = 800; m = m.resize((int(m.width * h / m.height), h), Image.LANCZOS)
     if m.width > 620: m = m.resize((620, int(m.height * 620 / m.width)), Image.LANCZOS)
-    y = 1470 - m.height
-    x = -40 if sp['side'] == 'left' else W - m.width + 40
+    y = 1462 - m.height
+    al = m.split()[-1]; ramp = Image.linear_gradient('L').resize((m.width, 70)).transpose(Image.FLIP_TOP_BOTTOM)
+    fade = Image.new('L', m.size, 255); fade.paste(ramp, (0, m.height - 70))
+    m.putalpha(Image.fromarray((np.array(al, dtype=np.uint16) * np.array(fade) // 255).astype('uint8')))
+    x = -40 if sp['side'] == 'left' else W - m.width - 110
     sh = Image.new('RGBA', m.size, (0, 0, 0, 0)); sh.putalpha(m.split()[-1].point(lambda a: int(a * 0.6)))
     sh = sh.filter(ImageFilter.GaussianBlur(18))
-    c.alpha_composite(sh, (x + 14, y + 20)); c.alpha_composite(m, (x, y))
+    sh = sh.crop((0, 0, sh.width, sh.height - 20)); c.alpha_composite(sh, (x + 14, y + 20)); c.alpha_composite(m, (x, y))
     place(c, text_sprite(sp['l1'], 128, WHITE, 12, maxw=900), CX, 470, 1.0, 1.0, rot=-2)
     place(c, text_sprite(sp['l2'], 112, YELLOW, 12, maxw=900), CX, 610, 1.0, 1.0, rot=-2)
     st = stamp(sp['stamp'], 78, sp['scol']); hw = st.width / 2 + 20
