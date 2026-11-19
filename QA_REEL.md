@@ -56,6 +56,9 @@ Every reel opens with a 0.2 s cover frame built for the profile grid (`tools/cov
 6. Countdown episodes: day number is correct for the posting date, and the tease line matches the next episode.
 7. Retention (from the Nov 3 Instagram insights on the Zelda lengths reel: half of viewers gone by 6 seconds, flat middle, drop at the end card):
    - The payoff number or headline is on screen in the first second, not after an intro.
+   - 2-second check (added Nov 18; the PS5 settings reel lost 60.4% in the first 2 seconds): by 2.0 s the viewer
+     knows the topic and why it matters to them, from the voice AND the on-screen text. The first frame's text matches
+     the hook Tyler chose from the script's hook options. Fail it if the first 2 seconds are setup, a logo or a pause.
    - Data reels reach the chart within 3 seconds.
    - The closing question and the follow card are one combined card of about 2 seconds.
    - The script has one natural share line ("Send this to...") before the closing question.
