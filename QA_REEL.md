@@ -49,6 +49,8 @@ Every reel opens with a 0.2 s cover frame built for the profile grid (`tools/cov
    - Cover frame is the first frame; the end card reads "Subscribe so you don't miss Day N" where it applies.
    - End card (Nov 18): names the next episode when it is known ("Next: ...") and carries "Follow so you're not
      the last one to know." Never "you heard it here first" or other claims we can't back up.
+   - Voiceless text posts (Nov 19): a yellow CTA box on screen the whole time, "SUBSCRIBE SO YOU'RE NOT THE LAST
+     ONE TO KNOW" on YouTube and "FOLLOW SO..." on TikTok and Instagram, plus the same line in the caption.
    - Footage labeled 1998 or N64 is Tyler's real capture; everything else is official press material.
 4. Facts: every number, name, date and quote on screen, in the voice, caption and title matches an opened source.
    Labels are honest (CONFIRMED, REPORTED, UNCONFIRMED). "Rockstar says" only for official Rockstar statements;
