@@ -47,6 +47,8 @@ Every reel opens with a 0.2 s cover frame built for the profile grid (`tools/cov
 3. Picture: frames at every scene change plus 1 second in.
    - No cut-off, overlapping or misspelled text.
    - Cover frame is the first frame; the end card reads "Subscribe so you don't miss Day N" where it applies.
+   - End card (Nov 18): names the next episode when it is known ("Next: ...") and carries "Follow so you're not
+     the last one to know." Never "you heard it here first" or other claims we can't back up.
    - Footage labeled 1998 or N64 is Tyler's real capture; everything else is official press material.
 4. Facts: every number, name, date and quote on screen, in the voice, caption and title matches an opened source.
    Labels are honest (CONFIRMED, REPORTED, UNCONFIRMED). "Rockstar says" only for official Rockstar statements;
