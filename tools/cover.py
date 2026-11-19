@@ -26,10 +26,11 @@ SPECS = {
  '2026-11-17-gta6-day2-ps5-settings': dict(l1="4 PS5 SETTINGS", l2="BEFORE GTA 6", stamp="DAY 2", scol=RED, pose='shocked_a', side='left', corner="GTA 6 IN 2 DAYS", cred="FOOTAGE: ROCKSTAR GAMES"),
  '2026-11-17-mw4-wager-gauntlet': dict(l1="BET YOUR TROPHIES", l2="IN A 1V1", stamp="GAUNTLET", scol=GREEN, pose='laughing_a', side='right', corner=None, cred="IMAGES: ACTIVISION"),
  '2026-11-18-gta6-day1-jason-lucia': dict(l1="WHO BETRAYS", l2="WHO FIRST?", stamp="DAY 1", scol=RED, pose='thinking_a', side='right', corner="GTA 6 TONIGHT", cred="IMAGES: ROCKSTAR GAMES"),
+ '2026-11-19-gta6-99-ocarina': dict(l1="GTA 6 JUST", l2="TIED OCARINA", stamp="99", scol=GREEN, pose='shocked_a', side='right', corner="METACRITIC", cred="IMAGES: ROCKSTAR GAMES"),
  '2026-11-15-ocarina-nine-ways': dict(l1="9 VERSIONS", l2="ONLY 2 REMAKES", stamp="SINCE 1998", scol=GREEN, pose='thinking_a', side='right', corner="2026 REMAKE", cred="FOOTAGE: NINTENDO"),
 }
 
-BG = {'2026-11-11-mw4-camos': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST.jpg', '2026-11-12-ocarina-missing': 'r_missing/navi/f0001.jpg', '2026-11-13-gta6-day6-spoiler-shield': 'r_spoil/pair/f0001.jpg', '2026-11-13-warzone-switch2': 'r_warzone/img/ghost.jpg', '2026-11-14-mw4-battle-pass': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST_HA.jpg', '2026-11-15-ocarina-nine-ways': 'r_nine/hook/f0001.jpg', '2026-11-17-gta6-day2-ps5-settings': 'r_d9/car/f0020.jpg', '2026-11-17-mw4-wager-gauntlet': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST_HA.jpg', '2026-11-18-gta6-day1-jason-lucia': 'press/ss/People/Jason and Lucia/Jason_and_Lucia_01.jpg'}
+BG = {'2026-11-11-mw4-camos': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST.jpg', '2026-11-12-ocarina-missing': 'r_missing/navi/f0001.jpg', '2026-11-13-gta6-day6-spoiler-shield': 'r_spoil/pair/f0001.jpg', '2026-11-13-warzone-switch2': 'r_warzone/img/ghost.jpg', '2026-11-14-mw4-battle-pass': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST_HA.jpg', '2026-11-15-ocarina-nine-ways': 'r_nine/hook/f0001.jpg', '2026-11-17-gta6-day2-ps5-settings': 'r_d9/car/f0020.jpg', '2026-11-17-mw4-wager-gauntlet': 'press/mw4/img/mobile-wallpapers__COD_MW4_GHOST_HA.jpg', '2026-11-18-gta6-day1-jason-lucia': 'press/ss/People/Jason and Lucia/Jason_and_Lucia_01.jpg', '2026-11-19-gta6-99-ocarina': 'press/ss/People/Jason and Lucia/Jason_and_Lucia_01.jpg'}
 
 def fit(path):
     im = Image.open(S + '/' + path).convert('RGB'); w, h = im.size
