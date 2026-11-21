@@ -80,3 +80,5 @@ PASS, or a numbered list of fixes with timestamps. Fix, re-render, and re-run th
 ## Buffer YouTube limit (Nov 21)
 
 The free plan allows 2 YouTube posts in any rolling 24 hours, not per calendar day. Before scheduling a YouTube post, count the YouTube posts in the 24 hours before it. Leave at least 15 minutes past the 24-hour mark.
+
+Rule: every channel gets at least one post per local calendar day. After scheduling a batch, set a check-in about 15 minutes after each post time. Each check-in confirms the post was sent on YouTube, Instagram and TikTok, and fixes any error the same day.
