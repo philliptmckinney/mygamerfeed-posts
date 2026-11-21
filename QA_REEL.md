@@ -76,3 +76,7 @@ PASS, or a numbered list of fixes with timestamps. Fix, re-render, and re-run th
 ## Claimed-track list (do not use on YouTube)
 
 - Ghost Beatz, "Daybreak" (claimed Nov 2 on the Hum Short)
+
+## Buffer YouTube limit (Nov 21)
+
+The free plan allows 2 YouTube posts in any rolling 24 hours, not per calendar day. Before scheduling a YouTube post, count the YouTube posts in the 24 hours before it. Leave at least 15 minutes past the 24-hour mark.
