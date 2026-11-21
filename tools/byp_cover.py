@@ -35,11 +35,12 @@ def logo_a(ep="02", scale=1.0):
 def logo_b(ep=None, size=520):
     im = Image.new("RGBA", (size + 20, size + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     d.ellipse((14, 14, size + 14, size + 14), fill=INK)
-    d.ellipse((0, 0, size, size), fill=YELLOW, outline=INK, width=12)
-    d.ellipse((34, 34, size - 34, size - 34), outline=INK, width=6)
-    d.text((size / 2, size * 0.27), "BEFORE", font=font(int(size * 0.13)), fill=INK, anchor="mm")
-    d.text((size / 2, size * 0.75), "YOU PLAY", font=font(int(size * 0.115)), fill=INK, anchor="mm")
-    t = toggle(True).resize((int(size * 0.5), int(size * 0.5 * 110 / 200)), Image.LANCZOS)
+    d.ellipse((0, 0, size, size), fill=YELLOW, outline=INK, width=max(6, int(size * 0.023)))
+    ins = int(size * 0.045)
+    d.ellipse((ins, ins, size - ins, size - ins), outline=INK, width=max(2, int(size * 0.008)))
+    d.text((size / 2, size * 0.30), "BEFORE", font=font(int(size * 0.125)), fill=INK, anchor="mm")
+    d.text((size / 2, size * 0.71), "YOU PLAY", font=font(int(size * 0.105)), fill=INK, anchor="mm")
+    t = toggle(True).resize((int(size * 0.42), int(size * 0.42 * 110 / 200)), Image.LANCZOS)
     im.alpha_composite(t, (int(size / 2 - t.width / 2), int(size / 2 - t.height / 2)))
     return im
 
