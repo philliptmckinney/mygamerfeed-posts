@@ -85,4 +85,4 @@ Rule: every channel gets at least one post per local calendar day. After schedul
 
 ## TikTok replies (Nov 21)
 
-10 of 12 replies posted back to back on Nov 21 were later gone from their threads, with no error shown. Treat that as spam filtering and never repost them. Space TikTok replies a few minutes apart, at most 3 or 4 per sweep, and check the next day that they stuck.
+TikTok Studio's comment list doesn't always show 'View 1 reply' under comments we answered. Don't read a missing count as a removed reply. Check the video in the TikTok app before assuming anything was filtered. Still space replies a little rather than firing them back to back.
