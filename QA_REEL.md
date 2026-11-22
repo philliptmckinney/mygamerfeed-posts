@@ -82,3 +82,7 @@ PASS, or a numbered list of fixes with timestamps. Fix, re-render, and re-run th
 The free plan allows 2 YouTube posts in any rolling 24 hours, not per calendar day. Before scheduling a YouTube post, count the YouTube posts in the 24 hours before it. Leave at least 15 minutes past the 24-hour mark.
 
 Rule: every channel gets at least one post per local calendar day. After scheduling a batch, set a check-in about 15 minutes after each post time. Each check-in confirms the post was sent on YouTube, Instagram and TikTok, and fixes any error the same day.
+
+## TikTok replies (Nov 21)
+
+10 of 12 replies posted back to back on Nov 21 were later gone from their threads, with no error shown. Treat that as spam filtering and never repost them. Space TikTok replies a few minutes apart, at most 3 or 4 per sweep, and check the next day that they stuck.
