@@ -86,3 +86,6 @@ Rule: every channel gets at least one post per local calendar day. After schedul
 ## TikTok replies (Nov 21)
 
 TikTok Studio's comment list doesn't always show 'View 1 reply' under comments we answered. Don't read a missing count as a removed reply. Check the video in the TikTok app before assuming anything was filtered. Still space replies a little rather than firing them back to back.
+
+- Comment sweeps: also check YouTube Studio's comment inbox (Unresponded). Buffer Community can lag and missed YouTube comments on Nov 24.
+- VO cuts: check each cut end for a word tail (a consonant release up to ~0.25s after the dip). On Nov 24 "performance" and "remake" were clipped at a mid-word dip. Every cut end needs silence after it, not just at it.
