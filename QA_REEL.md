@@ -57,6 +57,9 @@ Every reel opens with a 0.2 s cover frame built for the profile grid (`tools/cov
    preview-visit claims are "Rockstar told preview visitors."
 5. Text rules: no em dashes anywhere, proper capitalization, at most 5 hashtags, YouTube title under 60 characters,
    TikTok caption opens with the search phrase.
+   Gear CTA (Nov 24): every caption carries a gift guide line before the follow line. Instagram and TikTok:
+   "Shopping for a gamer? Our Black Friday gift guide is at the link in our bio." YouTube: "...is linked on our
+   channel page." After the holidays, switch it to a general gamer gear line.
 6. Countdown episodes: day number is correct for the posting date, and the tease line matches the next episode.
 7. Retention (from the Nov 3 Instagram insights on the Zelda lengths reel: half of viewers gone by 6 seconds, flat middle, drop at the end card):
    - The payoff number or headline is on screen in the first second, not after an intro.
