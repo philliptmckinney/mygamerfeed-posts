@@ -1,0 +1,383 @@
+{
+ "vo": "/home/claude/vo84/bf_vo.wav",
+ "music": "/mnt/user-data/uploads/Music/Matt_Wigton_Good_Times_instrumental_4_00.mp3",
+ "music_offset": 6.0,
+ "tag": "BLACK FRIDAY",
+ "tail": 1.3,
+ "cover": {
+  "l1": "BLACK FRIDAY GEAR",
+  "l2": "WORTH GRABBING",
+  "stamp": "3 PICKS",
+  "stamp_color": "yellow",
+  "pose": "laughing_a"
+ },
+ "merch_card": "endcards/mgf-merch-endcard-blackfriday.png",
+ "scenes": [
+  {
+   "t0": 0.0,
+   "t1": 2.975,
+   "kind": "text",
+   "items": [
+    {
+     "t": 0.2,
+     "type": "white",
+     "text": "BLACK FRIDAY",
+     "size": 170,
+     "y": 500
+    },
+    {
+     "t": 0.9,
+     "type": "white",
+     "text": "GEAR",
+     "size": 290,
+     "y": 670,
+     "anim": "slam"
+    },
+    {
+     "t": 2.15,
+     "type": "yellow",
+     "text": "WORTH",
+     "size": 220,
+     "y": 960,
+     "anim": "slam"
+    },
+    {
+     "t": 2.4,
+     "type": "yellow",
+     "text": "GRABBING",
+     "size": 220,
+     "y": 1160,
+     "anim": "slam"
+    }
+   ]
+  },
+  {
+   "t0": 2.975,
+   "t1": 5.775,
+   "kind": "text",
+   "items": [
+    {
+     "t": 3.025,
+     "type": "num",
+     "text": "1",
+     "y": 360
+    },
+    {
+     "t": 3.375,
+     "type": "pill",
+     "text": "CHEAPEST UPGRADE",
+     "size": 58,
+     "y": 550,
+     "anim": "slide_r"
+    },
+    {
+     "t": 4.575,
+     "type": "sticker",
+     "text": "BIGGEST PAYOFF",
+     "size": 70,
+     "color": "green",
+     "angle": -4,
+     "y": 680
+    }
+   ]
+  },
+  {
+   "t0": 5.775,
+   "t1": 11.775,
+   "kind": "text",
+   "items": [
+    {
+     "t": 5.775,
+     "type": "num",
+     "text": "1",
+     "y": 360,
+     "anim": "pop"
+    },
+    {
+     "t": 5.825,
+     "type": "white",
+     "text": "LED LIGHT BARS",
+     "size": 100,
+     "y": 530,
+     "anim": "slam"
+    },
+    {
+     "t": 6.825,
+     "type": "yellow",
+     "text": "BEHIND YOUR TV",
+     "size": 80,
+     "y": 645,
+     "anim": "slide_r"
+    },
+    {
+     "t": 7.125,
+     "type": "tv",
+     "y": 660
+    },
+    {
+     "t": 7.875,
+     "type": "pill",
+     "text": "THE GLOW EVERY SETUP VIDEO HAS",
+     "size": 44,
+     "y": 1310,
+     "anim": "rise"
+    },
+    {
+     "t": 9.325,
+     "type": "beat"
+    },
+    {
+     "t": 10.625,
+     "type": "beat"
+    }
+   ]
+  },
+  {
+   "t0": 11.775,
+   "t1": 20.475,
+   "kind": "text",
+   "items": [
+    {
+     "t": 11.825,
+     "type": "num",
+     "text": "2",
+     "y": 360
+    },
+    {
+     "t": 11.975,
+     "type": "pill",
+     "text": "NEED A HEADSET?",
+     "size": 50,
+     "y": 530
+    },
+    {
+     "t": 13.275,
+     "type": "white",
+     "text": "TURTLE BEACH",
+     "size": 96,
+     "y": 630,
+     "anim": "slide_l"
+    },
+    {
+     "t": 13.725,
+     "type": "yellow",
+     "text": "AIRLITE FIT",
+     "size": 96,
+     "y": 740,
+     "anim": "slam"
+    },
+    {
+     "t": 13.625,
+     "type": "headset",
+     "y": 860,
+     "scale": 0.72
+    },
+    {
+     "t": 14.825,
+     "type": "check",
+     "text": "COMFY FOR LONG SESSIONS",
+     "size": 48,
+     "y": 1250,
+     "align": "left",
+     "x": 100
+    },
+    {
+     "t": 16.775,
+     "type": "check",
+     "text": "FLIP THE MIC UP TO MUTE",
+     "size": 48,
+     "y": 1325,
+     "align": "left",
+     "x": 100
+    },
+    {
+     "t": 18.825,
+     "type": "check",
+     "text": "WORKS ON PRETTY MUCH EVERYTHING",
+     "size": 48,
+     "y": 1400,
+     "align": "left",
+     "x": 100
+    }
+   ]
+  },
+  {
+   "t0": 20.475,
+   "t1": 27.725,
+   "kind": "text",
+   "items": [
+    {
+     "t": 20.525,
+     "type": "num",
+     "text": "3",
+     "y": 360
+    },
+    {
+     "t": 20.625,
+     "type": "white",
+     "text": "GOT A SWITCH 2?",
+     "size": 100,
+     "y": 530,
+     "anim": "slam"
+    },
+    {
+     "t": 22.175,
+     "type": "yellow",
+     "text": "GAMES RUN FROM",
+     "size": 70,
+     "y": 650
+    },
+    {
+     "t": 22.175,
+     "type": "sd",
+     "x": 300,
+     "y": 770,
+     "color": "yellow",
+     "anim": "slide_l",
+     "shake_at": null
+    },
+    {
+     "t": 24.725,
+     "type": "sticker",
+     "text": "EXPRESS ONLY",
+     "size": 44,
+     "color": "green",
+     "angle": -5,
+     "x": 285,
+     "y": 1210
+    },
+    {
+     "t": 25.925,
+     "type": "sd",
+     "x": 700,
+     "y": 770,
+     "color": "white",
+     "top": "OLD",
+     "bot": "microSD",
+     "cross": true,
+     "anim": "slide_r"
+    },
+    {
+     "t": 25.925,
+     "type": "sticker",
+     "text": "WON'T CUT IT",
+     "size": 44,
+     "color": "red",
+     "angle": 4,
+     "x": 715,
+     "y": 1210
+    },
+    {
+     "t": 24.825,
+     "type": "beat"
+    }
+   ]
+  },
+  {
+   "t0": 27.725,
+   "t1": 36.475,
+   "kind": "merch",
+   "items": [
+    {
+     "t": 29.195,
+     "type": "beat"
+    },
+    {
+     "t": 30.525,
+     "type": "beat"
+    },
+    {
+     "t": 31.825,
+     "type": "box",
+     "box": [
+      513,
+      609,
+      330
+     ]
+    },
+    {
+     "t": 33.175,
+     "type": "box",
+     "box": [
+      157,
+      609,
+      330
+     ]
+    },
+    {
+     "t": 34.825,
+     "type": "box",
+     "box": [
+      513,
+      965,
+      330
+     ]
+    },
+    {
+     "t": 35.375,
+     "type": "box",
+     "box": [
+      157,
+      965,
+      330
+     ]
+    }
+   ]
+  },
+  {
+   "t0": 36.475,
+   "t1": 38.925,
+   "kind": "text",
+   "items": [
+    {
+     "t": 36.475,
+     "type": "white",
+     "text": "SEND THIS TO",
+     "size": 100,
+     "y": 420
+    },
+    {
+     "t": 36.725,
+     "type": "yellow",
+     "text": "WHOEVER'S SHOPPING",
+     "size": 92,
+     "y": 540,
+     "anim": "slam"
+    },
+    {
+     "t": 37.125,
+     "type": "white",
+     "text": "FOR YOU THIS YEAR",
+     "size": 92,
+     "y": 650,
+     "anim": "slide_r"
+    },
+    {
+     "t": 36.825,
+     "type": "img",
+     "path": "mascot_point_cutout.png",
+     "h": 560,
+     "y": 820
+    }
+   ]
+  },
+  {
+   "t0": 38.925,
+   "t1": 99,
+   "kind": "end",
+   "question": [
+    "WHAT'S THE ONE UPGRADE",
+    "YOU'RE GRABBING?"
+   ],
+   "follow": [
+    "SUBSCRIBE SO YOU'RE NOT",
+    "THE LAST ONE TO KNOW"
+   ],
+   "extra": {
+    "t": 41.125,
+    "text": "FULL LIST: LINK IN BIO"
+   },
+   "next": "NEXT: CYBER MONDAY LAST CALL"
+  }
+ ]
+}
