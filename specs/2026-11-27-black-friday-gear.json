@@ -214,10 +214,10 @@
      "t": 26.5,
      "type": "sticker",
      "text": "EXPRESS ONLY",
-     "size": 50,
+     "size": 44,
      "color": "green",
      "angle": -5,
-     "x": 300,
+     "x": 285,
      "y": 1210
     },
     {
@@ -234,10 +234,10 @@
      "t": 27.7,
      "type": "sticker",
      "text": "WON'T CUT IT",
-     "size": 50,
+     "size": 44,
      "color": "red",
      "angle": 4,
-     "x": 700,
+     "x": 715,
      "y": 1210
     }
    ]

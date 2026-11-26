@@ -1,4 +1,4 @@
-"""@mygamerfeed voiced reel builder (house style: glow background, top bar, Lilita text, pills, stickers,
+"""@mygamerfeed voiced reel builder (house style: glow background, top bar, Rubik Black text, pills, stickers,
 pop-in animation, merch card, combined question + follow end card, 0.2 s cover frame).
 
 Usage: python3 build_reel.py spec.json out.mp4
@@ -26,8 +26,9 @@ GREEN = (40, 200, 110); RED = (235, 55, 70); WHITE = (255, 255, 255); BLACK = (1
 COLORS = {"yellow": YEL, "pink": PINK, "green": GREEN, "red": RED, "white": WHITE, "cyan": CYAN}
 
 
-def F(size, name="lilita"):
-    files = {"lilita": "lilita-one-latin-400-normal.woff", "rubik": "rubik-latin-800-normal.woff"}
+def F(size, name="rubik"):
+    # House font is Rubik Black (900), matched to reels through Nov 25.
+    files = {"rubik": "rubik-latin-900-normal.woff", "lilita": "lilita-one-latin-400-normal.woff"}
     return ImageFont.truetype(os.path.join(FONTS, files[name]), size)
 
 
@@ -146,8 +147,8 @@ def icon_sdcard(label_top="microSD", label_bot="EXPRESS", col=YEL, cross=False):
     d.polygon(poly, fill=(28, 26, 40), outline=BLACK)
     d.line(poly + [poly[0]], fill=BLACK, width=8)
     d.rectangle((40, 30, w - 40, 210), fill=col)
-    d.text((w / 2, 95), label_top, font=F(52), fill=BLACK, anchor="mm")
-    d.text((w / 2, 160), label_bot, font=F(46), fill=BLACK, anchor="mm")
+    d.text((w / 2, 95), label_top, font=F(40), fill=BLACK, anchor="mm")
+    d.text((w / 2, 160), label_bot, font=F(38), fill=BLACK, anchor="mm")
     for i in range(6):
         d.rounded_rectangle((44 + i * 38, h - 80, 64 + i * 38, h - 30), 4, fill=(210, 170, 60))
     if cross:
