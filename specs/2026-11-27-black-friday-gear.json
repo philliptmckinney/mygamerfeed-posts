@@ -26,11 +26,12 @@
      "y": 380
     },
     {
-     "t": 0.2,
+     "t": 1.6,
      "type": "yellow",
      "text": "WORTH GRABBING",
      "size": 104,
-     "y": 500
+     "y": 500,
+     "anim": "slam"
     },
     {
      "t": 3.1,
@@ -40,6 +41,13 @@
      "color": "pink",
      "angle": -4,
      "y": 660
+    },
+    {
+     "t": 3.15,
+     "type": "img",
+     "path": "poses/mgf_pose_laughing_a_cutout.png",
+     "h": 560,
+     "y": 880
     }
    ]
   },
@@ -59,7 +67,8 @@
      "type": "pill",
      "text": "CHEAPEST UPGRADE",
      "size": 58,
-     "y": 550
+     "y": 550,
+     "anim": "slide_r"
     },
     {
      "t": 6.35,
@@ -81,21 +90,24 @@
      "t": 7.55,
      "type": "num",
      "text": "1",
-     "y": 360
+     "y": 360,
+     "anim": "pop"
     },
     {
      "t": 7.6,
      "type": "white",
      "text": "LED LIGHT BARS",
      "size": 100,
-     "y": 530
+     "y": 530,
+     "anim": "slam"
     },
     {
      "t": 8.6,
      "type": "yellow",
      "text": "BEHIND YOUR TV",
      "size": 80,
-     "y": 645
+     "y": 645,
+     "anim": "slide_r"
     },
     {
      "t": 8.9,
@@ -107,7 +119,16 @@
      "type": "pill",
      "text": "THE GLOW EVERY SETUP VIDEO HAS",
      "size": 44,
-     "y": 1310
+     "y": 1310,
+     "anim": "rise"
+    },
+    {
+     "t": 11.1,
+     "type": "beat"
+    },
+    {
+     "t": 12.4,
+     "type": "beat"
     }
    ]
   },
@@ -134,14 +155,16 @@
      "type": "white",
      "text": "TURTLE BEACH",
      "size": 96,
-     "y": 630
+     "y": 630,
+     "anim": "slide_l"
     },
     {
-     "t": 15.05,
+     "t": 15.5,
      "type": "yellow",
      "text": "AIRLITE FIT",
      "size": 96,
-     "y": 740
+     "y": 740,
+     "anim": "slam"
     },
     {
      "t": 15.4,
@@ -194,7 +217,8 @@
      "type": "white",
      "text": "GOT A SWITCH 2?",
      "size": 100,
-     "y": 530
+     "y": 530,
+     "anim": "slam"
     },
     {
      "t": 23.95,
@@ -208,7 +232,9 @@
      "type": "sd",
      "x": 300,
      "y": 770,
-     "color": "yellow"
+     "color": "yellow",
+     "anim": "slide_l",
+     "shake_at": null
     },
     {
      "t": 26.5,
@@ -228,7 +254,8 @@
      "color": "white",
      "top": "OLD",
      "bot": "microSD",
-     "cross": true
+     "cross": true,
+     "anim": "slide_r"
     },
     {
      "t": 27.7,
@@ -239,17 +266,67 @@
      "angle": 4,
      "x": 715,
      "y": 1210
+    },
+    {
+     "t": 26.6,
+     "type": "beat"
     }
    ]
   },
   {
    "t0": 29.5,
    "t1": 38.25,
-   "kind": "merch"
+   "kind": "merch",
+   "items": [
+    {
+     "t": 30.97,
+     "type": "beat"
+    },
+    {
+     "t": 32.3,
+     "type": "beat"
+    },
+    {
+     "t": 33.6,
+     "type": "box",
+     "box": [
+      513,
+      609,
+      330
+     ]
+    },
+    {
+     "t": 34.95,
+     "type": "box",
+     "box": [
+      157,
+      609,
+      330
+     ]
+    },
+    {
+     "t": 36.6,
+     "type": "box",
+     "box": [
+      513,
+      965,
+      330
+     ]
+    },
+    {
+     "t": 37.15,
+     "type": "box",
+     "box": [
+      157,
+      965,
+      330
+     ]
+    }
+   ]
   },
   {
    "t0": 38.25,
-   "t1": 40.75,
+   "t1": 40.7,
    "kind": "text",
    "items": [
     {
@@ -264,14 +341,16 @@
      "type": "yellow",
      "text": "WHOEVER'S SHOPPING",
      "size": 92,
-     "y": 540
+     "y": 540,
+     "anim": "slam"
     },
     {
      "t": 38.9,
      "type": "white",
      "text": "FOR YOU THIS YEAR",
      "size": 92,
-     "y": 650
+     "y": 650,
+     "anim": "slide_r"
     },
     {
      "t": 38.6,
@@ -283,7 +362,7 @@
    ]
   },
   {
-   "t0": 40.75,
+   "t0": 40.7,
    "t1": 99,
    "kind": "end",
    "question": [
@@ -295,10 +374,44 @@
     "THE LAST ONE TO KNOW"
    ],
    "extra": {
-    "t": 42.85,
+    "t": 42.9,
     "text": "FULL LIST: LINK IN BIO"
    },
    "next": "NEXT: CYBER MONDAY LAST CALL"
   }
+ ],
+ "vo_pieces_from_2026.11.26-1": [
+  [
+   14.527,
+   19.337
+  ],
+  [
+   48.748,
+   57.935
+  ],
+  [
+   62.998,
+   71.62
+  ],
+  [
+   80.403,
+   87.545
+  ],
+  [
+   90.27,
+   99.157
+  ],
+  [
+   102.505,
+   104.892
+  ],
+  [
+   107.828,
+   109.95
+  ],
+  [
+   122.177,
+   124.248
+  ]
  ]
 }

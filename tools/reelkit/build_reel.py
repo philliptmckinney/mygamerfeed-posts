@@ -227,12 +227,68 @@ def pop_scale(dt):
     return 1.0
 
 
+def ease_out(x):
+    x = min(1.0, max(0.0, x)); return 1 - (1 - x) ** 3
+
+
+def anim_state(kind, dt, seed):
+    """Return (scale, dx, dy, angle, alpha) for an element dt seconds after it enters."""
+    bob = 6 * math.sin(2 * math.pi * 0.7 * dt + seed)
+    if kind == "slam":
+        if dt < 0.14: sc = 1.9 - 0.95 * (dt / 0.14)
+        elif dt < 0.26: sc = 0.95 + 0.05 * ((dt - 0.14) / 0.12)
+        else: sc = 1.0
+        ang = 2.2 * math.sin(2 * math.pi * 0.9 * dt + seed)
+        return sc, 0, bob, ang, min(1, dt / 0.06)
+    if kind in ("slide_l", "slide_r"):
+        k = ease_out(dt / 0.22); sgn = -1 if kind == "slide_l" else 1
+        return 1.0, sgn * 700 * (1 - k), bob, 0, 1
+    if kind == "rise":
+        k = ease_out(dt / 0.25)
+        return 1.0, 0, 220 * (1 - k) + bob, 0, k
+    if kind == "spin":
+        k = ease_out(dt / 0.3)
+        return pop_scale(dt), 0, bob, -180 * (1 - k), 1
+    return pop_scale(dt), 0, bob, 1.2 * math.sin(2 * math.pi * 0.5 * dt + seed) if dt > 0.25 else 0, 1
+
+
+def put(frame, sprite, cx, y, st):
+    sc, dx, dy, ang, al = st
+    if sc <= 0 or al <= 0: return
+    sp = sprite
+    if sc != 1.0: sp = sp.resize((max(1, int(sp.width * sc)), max(1, int(sp.height * sc))), Image.BILINEAR)
+    if abs(ang) > 0.05: sp = sp.rotate(ang, resample=Image.BILINEAR, expand=True)
+    if al < 1:
+        a = sp.getchannel("A").point(lambda v: int(v * al)); sp = sp.copy(); sp.putalpha(a)
+    ox = cx + dx - sp.width / 2
+    oy = y + dy + (sprite.height - sp.height) / 2
+    frame.alpha_composite(sp, (int(ox), int(oy)))
+
+
+def particles(frame, t, rng_seed=5, n=16):
+    rng = np.random.default_rng(rng_seed)
+    layer = Image.new("RGBA", frame.size, (0, 0, 0, 0)); d = ImageDraw.Draw(layer)
+    for i in range(n):
+        x0, sp, ph, sz, k = rng.uniform(0, W), rng.uniform(40, 90), rng.uniform(0, 1), rng.uniform(22, 40), rng.integers(4)
+        y = (H + 100) - ((t * sp + ph * (H + 200)) % (H + 200))
+        x = x0 + 30 * math.sin(t * 0.8 + i)
+        c = (255, 255, 255, 60)
+        if k == 0: d.ellipse((x - sz, y - sz, x + sz, y + sz), outline=c, width=5)
+        elif k == 1: d.line((x - sz, y, x + sz, y), fill=c, width=6); d.line((x, y - sz, x, y + sz), fill=c, width=6)
+        elif k == 2: d.polygon([(x, y - sz), (x + sz, y + sz), (x - sz, y + sz)], outline=c, width=5)
+        else: d.rounded_rectangle((x - sz * 1.4, y - sz * 0.7, x + sz * 1.4, y + sz * 0.7), 10, outline=c, width=5)
+    frame.alpha_composite(layer)
+
+
 def place(frame, sprite, cx, y, s):
-    if s <= 0: return
-    if s != 1.0:
-        sprite = sprite.resize((max(1, int(sprite.width * s)), max(1, int(sprite.height * s))), Image.BICUBIC)
-        y = y + (1 - s) * sprite.height / max(s, 0.01) / 2
-    frame.alpha_composite(sprite, (int(cx - sprite.width / 2), int(y)))
+    put(frame, sprite, cx, y, (s, 0, 0, 0, 1))
+
+
+def punch(frame, z):
+    if z <= 1.001: return frame
+    w2, h2 = int(W * z), int(H * z)
+    big = frame.resize((w2, h2), Image.BILINEAR)
+    return big.crop(((w2 - W) // 2, (h2 - H) // 2, (w2 - W) // 2 + W, (h2 - H) // 2 + H))
 
 
 CX = 500  # content centre, left of the right-side action buttons
@@ -282,49 +338,77 @@ def render(spec, out):
     os.makedirs("frames_tmp", exist_ok=True)
     enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                             "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", "video_tmp.mp4"], stdin=subprocess.PIPE)
+    events = sorted({it["t"] for sc in spec["scenes"] for it in sc.get("items", [])} | {sc["t0"] for sc in spec["scenes"]})
+    starts = [sc["t0"] for sc in spec["scenes"]]
     for fi in range(nfr):
         t = fi / FPS
         if t < 0.2:
             enc.stdin.write(cover.convert("RGB").tobytes()); continue
         sc = next((s for s in spec["scenes"] if s["t0"] <= t < s["t1"]), spec["scenes"][-1])
+        st0 = sc["t0"]
         if sc["kind"] == "merch":
             fr = Image.new("RGBA", (W, H), NAVY + (255,))
-            s = min(1.0, 0.94 + 0.06 * min(1, (t - sc["t0"]) / 0.2))
-            m = merch.resize((int(W * s), int(H * s)), Image.BICUBIC) if s != 1 else merch
+            z = 1.0 + 0.05 * ((t - st0) / max(0.1, sc["t1"] - st0))
+            m = merch.resize((int(W * z), int(H * z)), Image.BILINEAR)
             fr.alpha_composite(m, ((W - m.width) // 2, (H - m.height) // 2))
+            for it in sc.get("items", []):
+                if t < it["t"] or t >= it.get("until", 1e9) or it["type"] == "beat": continue
+                dt = t - it["t"]
+                if it["type"] == "box":
+                    x, y, s_ = it["box"]; cxm, cym = W / 2, H / 2
+                    X0 = cxm + (x - cxm) * z; Y0 = cym + (y - cym) * z; S = s_ * z
+                    pulse = 1 + 0.04 * math.sin(dt * 10) * math.exp(-dt * 2)
+                    g = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dg = ImageDraw.Draw(g)
+                    pad = 10 + 6 * pulse
+                    dg.rounded_rectangle((X0 - pad, Y0 - pad, X0 + S + pad, Y0 + S + pad), 34, outline=YEL + (255,), width=12)
+                    fr.alpha_composite(g.filter(ImageFilter.GaussianBlur(6))); fr.alpha_composite(g)
+                else:
+                    put(fr, it["_s"], it.get("x", CX), it["y"], anim_state(it.get("anim", "slam"), dt, it["t"]))
         elif sc["kind"] == "end":
-            fr = ebg.convert("RGBA").copy(); topbar(fr, None)
-            y = 360
+            fr = ebg.convert("RGBA").copy(); particles(fr, t, 9, 12)
+            y = 360; dt = t - st0
             for i, ln in enumerate(sc["question"]):
-                sp = outlined_text(ln, 88, WHITE if i == 0 else YEL); place(fr, sp, CX, y, pop_scale(t - sc["t0"])); y += sp.height + 2
+                sp = outlined_text(ln, 88, WHITE if i == 0 else YEL); put(fr, sp, CX, y, anim_state("slam" if i else "pop", dt - 0.1 * i, i)); y += sp.height + 2
             y += 30
-            place(fr, thumbs, CX, y, pop_scale(t - sc["t0"] - 0.08)); y += thumbs.height + 20
+            put(fr, thumbs, CX, y, anim_state("rise", dt - 0.1, 2)); y += thumbs.height + 20
             for i, ln in enumerate(sc["follow"]):
-                sp = outlined_text(ln, 58, WHITE if i == 0 else YEL, stroke=7); place(fr, sp, CX, y, pop_scale(t - sc["t0"] - 0.15)); y += sp.height
-            if sc.get("next"):
-                sp = pill(sc["next"], 40, bg=WHITE); place(fr, sp, CX, 1400, pop_scale(t - sc["t0"] - 0.2))
+                sp = outlined_text(ln, 58, WHITE if i == 0 else YEL, stroke=7); put(fr, sp, CX, y, anim_state("pop", dt - 0.2 - 0.08 * i, 3 + i)); y += sp.height
             ex = sc.get("extra")
             if ex and t >= ex["t"]:
-                sp = pill(ex["text"], 46, bg=YEL); place(fr, sp, CX, y + 24, pop_scale(t - ex["t"]))
+                sp = pill(ex["text"], 46, bg=YEL); put(fr, sp, CX, y + 24, anim_state("slam", t - ex["t"], 5))
+            if sc.get("next"):
+                sp = pill(sc["next"], 40, bg=WHITE); put(fr, sp, CX, 1400, anim_state("slide_r", dt - 0.3, 6))
         else:
-            z = 1.0 + 0.05 * (t / total)
-            bw, bh = int(W * 1.15 / z * z), int(H * 1.15)
-            ox = int((bg.width - W) / 2 + 30 * math.sin(t * 0.25)); oy = int((bg.height - H) / 2 + 20 * math.cos(t * 0.2))
+            ox = int((bg.width - W) / 2 + 60 * math.sin(t * 0.35)); oy = int((bg.height - H) / 2 + 45 * math.cos(t * 0.27))
             fr = bg.crop((ox, oy, ox + W, oy + H)).convert("RGBA")
-            topbar(fr, spec.get("tag"))
+            particles(fr, t)
             for it in sc["items"]:
-                if t < it["t"] or t >= it.get("until", 1e9): continue
-                s = pop_scale(t - it["t"])
-                if it["type"] == "tv": place(fr, icon_tv(t), CX, it["y"], s); continue
+                if t < it["t"] or t >= it.get("until", 1e9) or it["type"] == "beat": continue
+                dt = t - it["t"]; kind = it.get("anim", {"num": "spin", "sticker": "slam", "pill": "slide_l", "check": "slide_l", "sd": "rise", "img": "rise", "tv": "rise", "headset": "rise"}.get(it["type"], "pop"))
+                st = anim_state(kind, dt, it["t"])
+                if it["type"] == "tv": put(fr, icon_tv(t), CX, it["y"], st); continue
                 if it["type"] == "headset":
-                    hi = icon_headset(t - it["t"]); k = it.get("scale", 1.0)
+                    hi = icon_headset(dt); k = it.get("scale", 1.0)
                     if k != 1.0: hi = hi.resize((int(hi.width * k), int(hi.height * k)), Image.BICUBIC)
-                    place(fr, hi, CX, it["y"], s); continue
+                    put(fr, hi, CX, it["y"], st); continue
+                if it.get("shake_at") and t >= it["shake_at"]:
+                    sd = t - it["shake_at"]
+                    if sd < 0.35: st = (st[0], st[1] + 14 * math.sin(sd * 60) * (1 - sd / 0.35), st[2], st[3], st[4])
                 if it.get("align") == "left":
-                    sp = it["_s"]; x = it.get("x", 110) + sp.width / 2
-                    place(fr, sp, x, it["y"], s)
+                    put(fr, it["_s"], it.get("x", 110) + it["_s"].width / 2, it["y"], st)
                 else:
-                    place(fr, it["_s"], it.get("x", CX), it["y"], s)
+                    put(fr, it["_s"], it.get("x", CX), it["y"], st)
+        # camera punch on every new element, bigger zoom-flash on scene changes
+        z = 1.0
+        for te in events:
+            if 0 <= t - te < 0.3: z = max(z, 1 + 0.03 * math.exp(-(t - te) / 0.09))
+        for ts_ in starts:
+            if 0 <= t - ts_ < 0.25: z = max(z, 1 + 0.09 * (1 - ease_out((t - ts_) / 0.25)))
+        fr = punch(fr, z)
+        for ts_ in starts:
+            if 0 <= t - ts_ < 0.07:
+                fr = Image.blend(fr, Image.new("RGBA", (W, H), (255, 255, 255, 255)), 0.22)
+        if sc["kind"] != "merch": topbar(fr, spec.get("tag") if sc["kind"] != "end" else None)
         enc.stdin.write(fr.convert("RGB").tobytes())
     enc.stdin.close(); enc.wait()
     # audio: voice untouched, music bed 0.055 under voice, rises to 0.15 after the voice, short fade
