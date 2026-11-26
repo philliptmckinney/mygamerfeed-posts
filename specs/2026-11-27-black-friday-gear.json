@@ -15,55 +15,55 @@
  "scenes": [
   {
    "t0": 0.0,
-   "t1": 4.75,
+   "t1": 2.975,
    "kind": "text",
    "items": [
     {
      "t": 0.2,
      "type": "white",
-     "text": "BLACK FRIDAY GEAR",
-     "size": 104,
-     "y": 380
+     "text": "BLACK FRIDAY",
+     "size": 170,
+     "y": 500
     },
     {
-     "t": 1.6,
-     "type": "yellow",
-     "text": "WORTH GRABBING",
-     "size": 104,
-     "y": 500,
+     "t": 0.9,
+     "type": "white",
+     "text": "GEAR",
+     "size": 290,
+     "y": 670,
      "anim": "slam"
     },
     {
-     "t": 3.1,
-     "type": "sticker",
-     "text": "3 PICKS. FAST.",
-     "size": 70,
-     "color": "pink",
-     "angle": -4,
-     "y": 660
+     "t": 2.15,
+     "type": "yellow",
+     "text": "WORTH",
+     "size": 220,
+     "y": 960,
+     "anim": "slam"
     },
     {
-     "t": 3.15,
-     "type": "img",
-     "path": "poses/mgf_pose_laughing_a_cutout.png",
-     "h": 560,
-     "y": 880
+     "t": 2.4,
+     "type": "yellow",
+     "text": "GRABBING",
+     "size": 220,
+     "y": 1160,
+     "anim": "slam"
     }
    ]
   },
   {
-   "t0": 4.75,
-   "t1": 7.55,
+   "t0": 2.975,
+   "t1": 5.775,
    "kind": "text",
    "items": [
     {
-     "t": 4.8,
+     "t": 3.025,
      "type": "num",
      "text": "1",
      "y": 360
     },
     {
-     "t": 5.15,
+     "t": 3.375,
      "type": "pill",
      "text": "CHEAPEST UPGRADE",
      "size": 58,
@@ -71,7 +71,7 @@
      "anim": "slide_r"
     },
     {
-     "t": 6.35,
+     "t": 4.575,
      "type": "sticker",
      "text": "BIGGEST PAYOFF",
      "size": 70,
@@ -82,19 +82,19 @@
    ]
   },
   {
-   "t0": 7.55,
-   "t1": 13.55,
+   "t0": 5.775,
+   "t1": 11.775,
    "kind": "text",
    "items": [
     {
-     "t": 7.55,
+     "t": 5.775,
      "type": "num",
      "text": "1",
      "y": 360,
      "anim": "pop"
     },
     {
-     "t": 7.6,
+     "t": 5.825,
      "type": "white",
      "text": "LED LIGHT BARS",
      "size": 100,
@@ -102,7 +102,7 @@
      "anim": "slam"
     },
     {
-     "t": 8.6,
+     "t": 6.825,
      "type": "yellow",
      "text": "BEHIND YOUR TV",
      "size": 80,
@@ -110,12 +110,12 @@
      "anim": "slide_r"
     },
     {
-     "t": 8.9,
+     "t": 7.125,
      "type": "tv",
      "y": 660
     },
     {
-     "t": 9.65,
+     "t": 7.875,
      "type": "pill",
      "text": "THE GLOW EVERY SETUP VIDEO HAS",
      "size": 44,
@@ -123,35 +123,35 @@
      "anim": "rise"
     },
     {
-     "t": 11.1,
+     "t": 9.325,
      "type": "beat"
     },
     {
-     "t": 12.4,
+     "t": 10.625,
      "type": "beat"
     }
    ]
   },
   {
-   "t0": 13.55,
-   "t1": 22.25,
+   "t0": 11.775,
+   "t1": 20.475,
    "kind": "text",
    "items": [
     {
-     "t": 13.6,
+     "t": 11.825,
      "type": "num",
      "text": "2",
      "y": 360
     },
     {
-     "t": 13.75,
+     "t": 11.975,
      "type": "pill",
      "text": "NEED A HEADSET?",
      "size": 50,
      "y": 530
     },
     {
-     "t": 15.05,
+     "t": 13.275,
      "type": "white",
      "text": "TURTLE BEACH",
      "size": 96,
@@ -159,7 +159,7 @@
      "anim": "slide_l"
     },
     {
-     "t": 15.5,
+     "t": 13.725,
      "type": "yellow",
      "text": "AIRLITE FIT",
      "size": 96,
@@ -167,13 +167,13 @@
      "anim": "slam"
     },
     {
-     "t": 15.4,
+     "t": 13.625,
      "type": "headset",
      "y": 860,
      "scale": 0.72
     },
     {
-     "t": 16.6,
+     "t": 14.825,
      "type": "check",
      "text": "COMFY FOR LONG SESSIONS",
      "size": 48,
@@ -182,7 +182,7 @@
      "x": 100
     },
     {
-     "t": 18.55,
+     "t": 16.775,
      "type": "check",
      "text": "FLIP THE MIC UP TO MUTE",
      "size": 48,
@@ -191,7 +191,7 @@
      "x": 100
     },
     {
-     "t": 20.6,
+     "t": 18.825,
      "type": "check",
      "text": "WORKS ON PRETTY MUCH EVERYTHING",
      "size": 48,
@@ -202,18 +202,18 @@
    ]
   },
   {
-   "t0": 22.25,
-   "t1": 29.5,
+   "t0": 20.475,
+   "t1": 27.725,
    "kind": "text",
    "items": [
     {
-     "t": 22.3,
+     "t": 20.525,
      "type": "num",
      "text": "3",
      "y": 360
     },
     {
-     "t": 22.4,
+     "t": 20.625,
      "type": "white",
      "text": "GOT A SWITCH 2?",
      "size": 100,
@@ -221,14 +221,14 @@
      "anim": "slam"
     },
     {
-     "t": 23.95,
+     "t": 22.175,
      "type": "yellow",
      "text": "GAMES RUN FROM",
      "size": 70,
      "y": 650
     },
     {
-     "t": 23.95,
+     "t": 22.175,
      "type": "sd",
      "x": 300,
      "y": 770,
@@ -237,7 +237,7 @@
      "shake_at": null
     },
     {
-     "t": 26.5,
+     "t": 24.725,
      "type": "sticker",
      "text": "EXPRESS ONLY",
      "size": 44,
@@ -247,7 +247,7 @@
      "y": 1210
     },
     {
-     "t": 27.7,
+     "t": 25.925,
      "type": "sd",
      "x": 700,
      "y": 770,
@@ -258,7 +258,7 @@
      "anim": "slide_r"
     },
     {
-     "t": 27.7,
+     "t": 25.925,
      "type": "sticker",
      "text": "WON'T CUT IT",
      "size": 44,
@@ -268,26 +268,26 @@
      "y": 1210
     },
     {
-     "t": 26.6,
+     "t": 24.825,
      "type": "beat"
     }
    ]
   },
   {
-   "t0": 29.5,
-   "t1": 38.25,
+   "t0": 27.725,
+   "t1": 36.475,
    "kind": "merch",
    "items": [
     {
-     "t": 30.97,
+     "t": 29.195,
      "type": "beat"
     },
     {
-     "t": 32.3,
+     "t": 30.525,
      "type": "beat"
     },
     {
-     "t": 33.6,
+     "t": 31.825,
      "type": "box",
      "box": [
       513,
@@ -296,7 +296,7 @@
      ]
     },
     {
-     "t": 34.95,
+     "t": 33.175,
      "type": "box",
      "box": [
       157,
@@ -305,7 +305,7 @@
      ]
     },
     {
-     "t": 36.6,
+     "t": 34.825,
      "type": "box",
      "box": [
       513,
@@ -314,7 +314,7 @@
      ]
     },
     {
-     "t": 37.15,
+     "t": 35.375,
      "type": "box",
      "box": [
       157,
@@ -325,19 +325,19 @@
    ]
   },
   {
-   "t0": 38.25,
-   "t1": 40.7,
+   "t0": 36.475,
+   "t1": 38.925,
    "kind": "text",
    "items": [
     {
-     "t": 38.25,
+     "t": 36.475,
      "type": "white",
      "text": "SEND THIS TO",
      "size": 100,
      "y": 420
     },
     {
-     "t": 38.5,
+     "t": 36.725,
      "type": "yellow",
      "text": "WHOEVER'S SHOPPING",
      "size": 92,
@@ -345,7 +345,7 @@
      "anim": "slam"
     },
     {
-     "t": 38.9,
+     "t": 37.125,
      "type": "white",
      "text": "FOR YOU THIS YEAR",
      "size": 92,
@@ -353,7 +353,7 @@
      "anim": "slide_r"
     },
     {
-     "t": 38.6,
+     "t": 36.825,
      "type": "img",
      "path": "mascot_point_cutout.png",
      "h": 560,
@@ -362,7 +362,7 @@
    ]
   },
   {
-   "t0": 40.7,
+   "t0": 38.925,
    "t1": 99,
    "kind": "end",
    "question": [
@@ -374,7 +374,7 @@
     "THE LAST ONE TO KNOW"
    ],
    "extra": {
-    "t": 42.9,
+    "t": 41.125,
     "text": "FULL LIST: LINK IN BIO"
    },
    "next": "NEXT: CYBER MONDAY LAST CALL"
@@ -383,7 +383,7 @@
  "vo_pieces_from_2026.11.26-1": [
   [
    14.527,
-   19.337
+   17.562
   ],
   [
    48.748,
