@@ -68,6 +68,11 @@ Every reel opens with a 0.2 s cover frame built for the profile grid (`tools/cov
      the hook Tyler chose from the script's hook options. Fail it if the first 2 seconds are setup, a logo or a pause.
    - Data reels reach the chart within 3 seconds.
    - The closing question and the follow card are one combined card of about 2 seconds.
+   - Merch CTA (Nov 26): every reel has the merch line and merch card (assets/endcards, or ~/mygamerfeed/images/mgf-merch-endcard*.png)
+     right BEFORE the closing question: ...follow line, merch CTA, question, end card. About 0.25 s of air on each side,
+     no dead gap. Music plays straight through the CTA (never a restart or jump), at bed level under the voice.
+     Through Cyber Monday use the BLACKFRIDAY20 card and Tyler's recorded line (2026.11.26 - 1.wav, 90.30-99.20 s);
+     after that use the everyday card and a new general merch line.
    - The script has one natural share line ("Send this to...") before the closing question.
 8. Safe zones: no text or pills in the top 260 px (Instagram back arrow and + button, TikTok top bar) or the bottom 420 px and right 140 px (captions and action buttons).
    One source credit only.
