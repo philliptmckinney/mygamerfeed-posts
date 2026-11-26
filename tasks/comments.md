@@ -1,7 +1,7 @@
 TODAY ONLY, Thursday Nov 26, 2026 (Central time) (Tyler, 10:28 AM: "Today you have full reign and full acceptance to run the comment sweeps... respond to everything. You don't need my approval."):
 - On Nov 26 only, skip HQ approval. Draft each reply under every rule below, then post it yourself right away. Run the RIGHT BEFORE POSTING re-check and the after-posting check on every one, exactly as for approved items.
 - Still never reply to hate, bait, slurs or spam, never reply where Tyler ended a conversation, and never double reply. Like-only comments stay like-only.
-- Also post any still-pending HQ draft whose comment is unanswered and still fits the rules today.
+- Also post still-pending HQ drafts created Nov 24 or later whose comment is still unanswered. Leave older pending drafts alone (weeks-old replies read oddly).
 - Record what you post in ONE `comments` document per run with each item's status "posted" (or "skipped" with the reason), plus a short `info` summary. Do not send Tyler a message for posted replies; only message him for an `alert`.
 - From Nov 27 on, this note no longer applies: go back to drafting for approval.
 
