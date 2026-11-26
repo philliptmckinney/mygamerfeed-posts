@@ -98,25 +98,25 @@ def check_row(text, size=56, ok=True):
 # ---------- drawn icons (original art, no product photos) ----------
 
 def icon_tv(phase=0.0):
-    w, h = 760, 520
+    P = 110  # padding so the glow never clips into a visible box
+    w, h = 760 + 2 * P, 520 + 2 * P
     im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     glow = Image.new("RGBA", (w, h), (0, 0, 0, 0)); g = ImageDraw.Draw(glow)
     cols = [PINK, (150, 80, 255), CYAN, PINK]
     k = (phase * 0.6) % 1.0
     c1 = cols[int(k * 3)]; c2 = cols[int(k * 3) + 1]; fr = (k * 3) % 1
     c = tuple(int(c1[i] * (1 - fr) + c2[i] * fr) for i in range(3))
-    g.rounded_rectangle((60, 50, w - 60, h - 70), 40, fill=c + (255,))
+    g.rounded_rectangle((P + 60, P + 50, w - P - 60, h - P - 70), 40, fill=c + (255,))
     glow = glow.filter(ImageFilter.GaussianBlur(48))
     im.alpha_composite(glow); im.alpha_composite(glow)
-    d = ImageDraw.Draw(im)
-    d.rounded_rectangle((130, 100, w - 130, h - 130), 18, fill=(8, 8, 14), outline=(60, 60, 80), width=6)
-    d.rounded_rectangle((150, 120, w - 150, h - 150), 10, fill=(20, 22, 40))
-    d.rectangle((w / 2 - 40, h - 130, w / 2 + 40, h - 95), fill=(40, 40, 52))
-    d.rounded_rectangle((w / 2 - 150, h - 98, w / 2 + 150, h - 82), 8, fill=(40, 40, 52))
-    # LED strip along the back edge
+    d = ImageDraw.Draw(im); X, Y = P, P; ww, hh = 760, 520
+    d.rounded_rectangle((X + 130, Y + 100, X + ww - 130, Y + hh - 130), 18, fill=(8, 8, 14), outline=(60, 60, 80), width=6)
+    d.rounded_rectangle((X + 150, Y + 120, X + ww - 150, Y + hh - 150), 10, fill=(20, 22, 40))
+    d.rectangle((X + ww / 2 - 40, Y + hh - 130, X + ww / 2 + 40, Y + hh - 95), fill=(40, 40, 52))
+    d.rounded_rectangle((X + ww / 2 - 150, Y + hh - 98, X + ww / 2 + 150, Y + hh - 82), 8, fill=(40, 40, 52))
     for i in range(16):
-        x = 150 + i * (w - 300) / 15
-        d.ellipse((x - 5, 96, x + 5, 106), fill=c + (255,))
+        x = X + 150 + i * (ww - 300) / 15
+        d.ellipse((x - 5, Y + 96, x + 5, Y + 106), fill=c + (255,))
     return im
 
 
