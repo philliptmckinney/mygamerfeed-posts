@@ -1,0 +1,336 @@
+{
+ "vo": "~/mygamerfeed/Audio/Post/2026.11.26 - Cyber Monday VO (approved).wav",
+ "music": "~/mygamerfeed/Music/Falls_Endless_Adventures_instrumental_2_56.mp3",
+ "music_offset": 4.0,
+ "tag": "CYBER MONDAY",
+ "tail": 1.3,
+ "seed": 11,
+ "cover": {
+  "l1": "CYBER MONDAY",
+  "l2": "ENDS TONIGHT",
+  "stamp": "LAST CALL",
+  "stamp_color": "red",
+  "pose": "shocked_a"
+ },
+ "merch_card": "endcards/mgf-merch-endcard-blackfriday.png",
+ "scenes": [
+  {
+   "t0": 0.0,
+   "t1": 3.8,
+   "kind": "text",
+   "items": [
+    {
+     "t": 0.2,
+     "type": "white",
+     "text": "CYBER MONDAY",
+     "size": 170,
+     "y": 470
+    },
+    {
+     "t": 1.0,
+     "type": "white",
+     "text": "ENDS",
+     "size": 290,
+     "y": 640,
+     "anim": "slam"
+    },
+    {
+     "t": 1.36,
+     "type": "yellow",
+     "text": "TONIGHT",
+     "size": 260,
+     "y": 930,
+     "anim": "slam"
+    },
+    {
+     "t": 2.55,
+     "type": "pill",
+     "text": "WHAT'S ACTUALLY WORTH GRABBING",
+     "size": 46,
+     "y": 1230,
+     "anim": "rise"
+    }
+   ]
+  },
+  {
+   "t0": 3.8,
+   "t1": 12.55,
+   "kind": "text",
+   "items": [
+    {
+     "t": 3.85,
+     "type": "num",
+     "text": "1",
+     "y": 360
+    },
+    {
+     "t": 3.9,
+     "type": "white",
+     "text": "GOT A SWITCH 2?",
+     "size": 100,
+     "y": 530,
+     "anim": "slam"
+    },
+    {
+     "t": 5.1,
+     "type": "yellow",
+     "text": "GAME STORAGE NEEDS",
+     "size": 70,
+     "y": 650,
+     "anim": "slide_r"
+    },
+    {
+     "t": 5.5,
+     "type": "sd",
+     "x": 300,
+     "y": 770,
+     "color": "yellow",
+     "anim": "slide_l"
+    },
+    {
+     "t": 6.5,
+     "type": "sticker",
+     "text": "EXPRESS ONLY",
+     "size": 44,
+     "color": "green",
+     "angle": -5,
+     "x": 285,
+     "y": 1210
+    },
+    {
+     "t": 8.6,
+     "type": "sd",
+     "x": 700,
+     "y": 770,
+     "color": "white",
+     "top": "OLD",
+     "bot": "microSD",
+     "cross": true,
+     "anim": "slide_r"
+    },
+    {
+     "t": 9.5,
+     "type": "sticker",
+     "text": "WON'T WORK",
+     "size": 44,
+     "color": "red",
+     "angle": 4,
+     "x": 715,
+     "y": 1210
+    },
+    {
+     "t": 10.66,
+     "type": "sticker",
+     "text": "GRAB ONE WHILE IT'S CHEAP",
+     "size": 50,
+     "color": "pink",
+     "angle": -3,
+     "y": 1340
+    }
+   ]
+  },
+  {
+   "t0": 12.55,
+   "t1": 17.6,
+   "kind": "text",
+   "items": [
+    {
+     "t": 12.6,
+     "type": "num",
+     "text": "2",
+     "y": 360
+    },
+    {
+     "t": 12.65,
+     "type": "white",
+     "text": "ON XBOX",
+     "size": 120,
+     "y": 530,
+     "anim": "slam"
+    },
+    {
+     "t": 14.4,
+     "type": "yellow",
+     "text": "RECHARGEABLE",
+     "size": 96,
+     "y": 680,
+     "anim": "slide_l"
+    },
+    {
+     "t": 15.0,
+     "type": "yellow",
+     "text": "BATTERY KIT",
+     "size": 96,
+     "y": 790,
+     "anim": "slide_r"
+    },
+    {
+     "t": 14.5,
+     "type": "battery",
+     "y": 880,
+     "x": 500
+    },
+    {
+     "t": 15.85,
+     "type": "sticker",
+     "text": "STOP BUYING AAs",
+     "size": 54,
+     "color": "red",
+     "angle": -4,
+     "y": 1390
+    }
+   ]
+  },
+  {
+   "t0": 17.6,
+   "t1": 22.75,
+   "kind": "text",
+   "items": [
+    {
+     "t": 17.65,
+     "type": "num",
+     "text": "3",
+     "y": 360
+    },
+    {
+     "t": 17.7,
+     "type": "white",
+     "text": "ON PS5",
+     "size": 120,
+     "y": 530,
+     "anim": "slam"
+    },
+    {
+     "t": 18.7,
+     "type": "yellow",
+     "text": "DUALSENSE",
+     "size": 100,
+     "y": 680,
+     "anim": "slide_l"
+    },
+    {
+     "t": 19.3,
+     "type": "yellow",
+     "text": "CHARGING STATION",
+     "size": 90,
+     "y": 790,
+     "anim": "slide_r"
+    },
+    {
+     "t": 19.4,
+     "type": "dock",
+     "y": 920
+    },
+    {
+     "t": 20.7,
+     "type": "sticker",
+     "text": "NO MORE DEAD CONTROLLER MID-MATCH",
+     "size": 46,
+     "color": "green",
+     "angle": -3,
+     "y": 1360
+    }
+   ]
+  },
+  {
+   "t0": 22.75,
+   "t1": 30.65,
+   "kind": "merch",
+   "items": [
+    {
+     "t": 24.18,
+     "type": "beat"
+    },
+    {
+     "t": 25.39,
+     "type": "beat"
+    },
+    {
+     "t": 27.3,
+     "type": "box",
+     "box": [
+      513,
+      965,
+      330
+     ]
+    },
+    {
+     "t": 28.4,
+     "type": "box",
+     "box": [
+      157,
+      609,
+      330
+     ]
+    },
+    {
+     "t": 28.55,
+     "type": "box",
+     "box": [
+      513,
+      609,
+      330
+     ]
+    },
+    {
+     "t": 28.7,
+     "type": "box",
+     "box": [
+      157,
+      965,
+      330
+     ]
+    },
+    {
+     "t": 29.85,
+     "type": "sticker",
+     "text": "TONIGHT ONLY",
+     "size": 70,
+     "color": "red",
+     "angle": -6,
+     "y": 900,
+     "anim": "slam"
+    }
+   ]
+  },
+  {
+   "t0": 30.65,
+   "t1": 99,
+   "kind": "end",
+   "question": [
+    "THE FULL LIST IS AT",
+    "MYGAMERFEED.COM"
+   ],
+   "follow": [
+    "FOLLOW SO YOU'RE NOT",
+    "THE LAST ONE TO KNOW"
+   ],
+   "extra": {
+    "t": 33.3,
+    "text": "LINK IN BIO"
+   }
+  }
+ ],
+ "vo_pieces_from_2026.11.26-1": [
+  [
+   130.232,
+   142.73
+  ],
+  [
+   146.057,
+   151.082
+  ],
+  [
+   153.482,
+   158.59
+  ],
+  [
+   160.12,
+   167.977
+  ],
+  [
+   168.315,
+   171.965
+  ]
+ ]
+}

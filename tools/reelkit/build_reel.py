@@ -156,6 +156,39 @@ def icon_sdcard(label_top="microSD", label_bot="EXPRESS", col=YEL, cross=False):
     return im
 
 
+
+def icon_battery(phase=0.0):
+    w, h = 300, 470
+    im = Image.new("RGBA", (w + 20, h + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.rounded_rectangle((10, 44, w + 10, h + 14), 34, fill=(0, 0, 0, 190))
+    d.rounded_rectangle((w / 2 - 50, 0, w / 2 + 50, 50), 12, fill=BLACK)
+    d.rounded_rectangle((0, 34, w, h), 34, fill=(36, 34, 52), outline=BLACK, width=10)
+    lv = int((phase * 2.2) % 5)
+    for i in range(4):
+        y1 = h - 40 - (i + 1) * 92
+        col = GREEN if i < lv else (70, 68, 90)
+        d.rounded_rectangle((34, y1, w - 34, y1 + 76), 14, fill=col)
+    d.polygon([(w / 2 + 20, 120), (w / 2 - 50, 270), (w / 2 + 5, 270), (w / 2 - 25, 400), (w / 2 + 60, 230), (w / 2 + 5, 230)], fill=YEL, outline=BLACK)
+    return im
+
+
+def icon_dock(phase=0.0):
+    w, h = 640, 420
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.rounded_rectangle((60, 300, w - 60, 400), 30, fill=BLACK)
+    d.rounded_rectangle((68, 306, w - 68, 392), 26, fill=(245, 245, 250))
+    blink = 0.5 + 0.5 * math.sin(phase * 6)
+    for k, cx in enumerate((200, 440)):
+        # simple pad silhouette standing in the dock
+        d.rounded_rectangle((cx - 120, 90, cx + 120, 300), 60, fill=BLACK)
+        d.rounded_rectangle((cx - 112, 98, cx + 112, 292), 54, fill=(245, 245, 250))
+        d.rounded_rectangle((cx - 60, 110, cx + 60, 150), 16, fill=(30, 30, 40))
+        d.ellipse((cx - 85, 170, cx - 45, 210), fill=(40, 40, 52)); d.ellipse((cx + 45, 170, cx + 85, 210), fill=(40, 40, 52))
+        g = int(160 + 95 * blink)
+        d.rounded_rectangle((cx - 40, 330, cx + 40, 346), 8, fill=(40, g, 255))
+    return im
+
+
 def mascot(path, height):
     im = Image.open(path).convert("RGBA")
     if path.endswith("_cutout.png"):
@@ -322,7 +355,7 @@ def render(spec, out):
     # pre-build sprites
     for sc in spec["scenes"]:
         for it in sc.get("items", []):
-            if it["type"] not in ("tv", "headset"):
+            if it["type"] not in ("tv", "headset", "battery", "dock", "beat", "box"):
                 it["_s"] = build_sprite(it)
     thumbs = mascot(os.path.join(ASSETS, "mascot_ref_thumbs.png"), 420)
     # cover
@@ -384,9 +417,12 @@ def render(spec, out):
             particles(fr, t)
             for it in sc["items"]:
                 if t < it["t"] or t >= it.get("until", 1e9) or it["type"] == "beat": continue
-                dt = t - it["t"]; kind = it.get("anim", {"num": "spin", "sticker": "slam", "pill": "slide_l", "check": "slide_l", "sd": "rise", "img": "rise", "tv": "rise", "headset": "rise"}.get(it["type"], "pop"))
+                dt = t - it["t"]; kind = it.get("anim", {"num": "spin", "sticker": "slam", "pill": "slide_l", "check": "slide_l", "sd": "rise", "img": "rise", "tv": "rise", "headset": "rise", "battery": "rise", "dock": "rise"}.get(it["type"], "pop"))
                 st = anim_state(kind, dt, it["t"])
                 if it["type"] == "tv": put(fr, icon_tv(t), CX, it["y"], st); continue
+                if it["type"] in ("battery", "dock"):
+                    ic = icon_battery(dt) if it["type"] == "battery" else icon_dock(dt)
+                    put(fr, ic, it.get("x", CX), it["y"], st); continue
                 if it["type"] == "headset":
                     hi = icon_headset(dt); k = it.get("scale", 1.0)
                     if k != 1.0: hi = hi.resize((int(hi.width * k), int(hi.height * k)), Image.BICUBIC)
